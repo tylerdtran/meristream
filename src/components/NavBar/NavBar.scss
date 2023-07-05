@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+// top right bottom left
+.navbar-total {
+    position: fixed;
+    // padding: 5px 0px 5px 0px;    
+    font-family: 'Mulish', sans-serif;
+}
+.nav-title {
+    font-size: 2em;
+
+}
+// @media (min-width: 768px) {
+    
+//   }
+.hamburger {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .hamburger {
+        display: block;
+    }
+    .nav-element-holder {
+        display: flex;
+        flex-direction: column;
+    }
+}
+  

@@ -1,0 +1,127 @@
+// // @import "./components/constants/constants.scss";
+
+// .meristream-logo {
+//     max-width: 8em;
+// }
+// @mixin circle-props {
+//     position: absolute;
+//     border-radius: 50%;
+//     background-color: transparent;
+//     border-width: 2px;
+// }
+
+
+// .first-logo-circle {
+//     // display: flex;
+//     // justify-content: center;
+//     // align-items: center;
+//     width: 343px;
+//     height: 343px;
+
+//     top:385px;
+//     left: 549px;
+//     @include circle-props;
+//     z-index: 2;
+//     // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(217, 217, 217, 0) 100%),
+//     // linear-gradient(0deg, #FFFFFF, #FFFFFF);
+//     // border: 3px solid #FFFFFF; 
+
+// }
+// .second-logo-circle {
+//     width: 640px;
+//     height: 640px;
+//     @include circle-props;
+//     top: 88px;
+//     left: 403px;
+//     // background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(0, 255, 255, 0) 100%);
+//     // border: 2px solid #FFFFFF80;
+// }
+
+// .third-logo-circle {
+//     width: 1092px;
+//     height: 1092px;
+//     @include circle-props;
+//     top: -314px;
+//     left: 36px;
+//     // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(217, 217, 217, 0) 100%),
+//     // linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+//     // border: 2px solid #FFFFFF80;
+//     z-index: -2;
+
+// }
+// .fourth-logo-circle {
+//     width: 1092px;
+//     height: 1092px;
+//     @include circle-props;
+//     top: -314px;
+//     left: 321px;
+//     // background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(217, 217, 217, 0) 100%),
+//     // linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+//     // border: 2px solid #FFFFFF80;
+//     z-index: -2;
+// }
+
+$logo-size-1: 8vw;
+$logo-size-2: 15vw;
+$logo-size-3: 26vw;
+
+.meristream-logo {
+  max-width: $logo-size-1;
+  position: absolute;
+    top: 50vh; 
+    left: 50vw
+}
+
+@mixin circle-props {
+  position: absolute;
+  border-radius: 50%;
+  background-color: transparent;
+  border-width: 2px;
+}
+
+.first-logo-circle {
+  width: $logo-size-2;
+  height: $logo-size-2;
+  top: 16vh;
+  left: 42.5vw;
+  @include circle-props;
+  z-index: 2;
+}
+
+.second-logo-circle {
+  width: $logo-size-3;
+  height: $logo-size-3;
+  @include circle-props;
+  top: 7.5vh;
+  left: 42.5vw;
+}
+
+.third-logo-circle {
+  width: $logo-size-3;
+  height: $logo-size-3;
+  @include circle-props;
+  top: 27vh;
+  left: 42.5vw;
+  z-index: -2;
+}
+
+.fourth-logo-circle {
+  width: $logo-size-3;
+  height: $logo-size-3;
+  @include circle-props;
+  top: 27vh;
+  left: 42.5vw;
+  z-index: -3;
+}
+
+.radial1-circle {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.45) 0%, rgba(0, 255, 255, 0) 100%);
+
+}
+
+.radial2-circle {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(0, 255, 255, 0) 100%);
+}
+.radial3-circle {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0) 100%);
+}
