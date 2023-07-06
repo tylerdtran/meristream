@@ -20,14 +20,14 @@ export default function NavBar() {
           <div className="nav-mobile-menu">
             <MenuIcon className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} style={{ transform: isMobileMenuOpen ? 'rotate(90deg)' : 'none' }}/>
             <div className={`nav-element-holder flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
-              <Link href="../SignUp/SignUp"><div>Devices</div></Link>
+              <Link href="../app/SignUp"><div>Devices</div></Link>
               <Link href="/license"><div>License</div></Link>
               <Link href="/account"><div>Account</div></Link>
             </div>
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-4 {`mobile-menu ${isMobileMenuOpen ? styles.open : ''}`}">
-                <Link href="../SignUp/SignUp"><div>Devices</div></Link>
+                <Link href="../app/SignUp"><div>Devices</div></Link>
                 <Link href="/license"><div>License</div></Link>
                 <Link href="/account"><div>Account</div></Link>
             </div> 
