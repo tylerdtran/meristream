@@ -68,8 +68,8 @@ $logo-size-3: 26vw;
 .meristream-logo {
   max-width: $logo-size-1;
   position: absolute;
-    top: 50vh; 
-    left: 50vw
+  top: 50vh; 
+  left: 50vw;
 }
 
 @mixin circle-props {
@@ -82,8 +82,8 @@ $logo-size-3: 26vw;
 .first-logo-circle {
   width: $logo-size-2;
   height: $logo-size-2;
-  top: 16vh;
-  left: 42.5vw;
+  top: 385px;
+  left: 549px;
   @include circle-props;
   z-index: 2;
 }
@@ -92,16 +92,16 @@ $logo-size-3: 26vw;
   width: $logo-size-3;
   height: $logo-size-3;
   @include circle-props;
-  top: 7.5vh;
-  left: 42.5vw;
+  top: 88px;
+  left: 403px;
 }
 
 .third-logo-circle {
   width: $logo-size-3;
   height: $logo-size-3;
   @include circle-props;
-  top: 27vh;
-  left: 42.5vw;
+  top: -314px;
+  left: 36px;
   z-index: -2;
 }
 
@@ -109,8 +109,8 @@ $logo-size-3: 26vw;
   width: $logo-size-3;
   height: $logo-size-3;
   @include circle-props;
-  top: 27vh;
-  left: 42.5vw;
+  top: -314px;
+  left: 321px;
   z-index: -3;
 }
 
