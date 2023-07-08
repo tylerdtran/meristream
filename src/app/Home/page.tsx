@@ -1,7 +1,7 @@
-import '../page.scss';
+import './page.scss';
 import Image from 'next/image';
 import Meristream_Logo from '@/images/Meristream-logo.png';
-import Ellipse from '@/components/constants/constants';
+import Ellipse from '@/app/(components)/constants/constants';
 
 
 export default function HomePage() {
