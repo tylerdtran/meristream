@@ -1,0 +1,45 @@
+
+.screen-align-temp {
+    display: flex;
+
+    align-items: center;
+}
+.license-agreement-wrapper {
+    display: flex;
+    justify-content: center;
+    
+    .license-agreement {
+        font-family: 'Mulish', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center; 
+        gap: 1em;
+        border-radius: 50px;
+        padding: 1.5em;
+
+        .license-title {
+            font-size: 2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .license-paragraph {
+            text-align: left;
+            font-size: 1em;
+        }
+        .license-button-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 40%;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+    }
+
+
+}
+
