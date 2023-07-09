@@ -1,4 +1,19 @@
  
  .footer-total {
     font-family: 'Mulish', sans-serif;
+    position: sticky;
+    letter-spacing: 2px;
+ }
+
+ @media (max-width: 768px) {
+    .footer-total {
+         display: flex; 
+         flex-direction: column;
+         gap: 0.9em;
+         font-size: 0.8em;
+    }
+   //  .footer-links {
+   //       display: flex;
+   //       flex-direction: column;
+   //  }
  }
