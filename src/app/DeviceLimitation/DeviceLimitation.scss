@@ -1,0 +1,38 @@
+.device-limit {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.device-limit-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: 0.15em;
+    text-align: left;
+    padding: 1em;
+}
+
+.device-limit-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 1);
+    letter-spacing: 0.15em;
+    text-align: left;
+    padding: 1em;
+}
+
+.device-limit-continue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    .continue-button {
+        padding: 0.5em;
+        border-radius: 0.5em;
+        width: 50%;
+        color: rgba(0, 0, 0, 0.65);
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
