@@ -2,6 +2,7 @@
 'use client';
 import React, { useState } from 'react';
 import './SignUp.scss';
+import Link from 'next/link';
 
 interface Inputs {
   firstName: string;
@@ -77,65 +78,117 @@ const SignUp: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="signuppage-header">
-        <h1>Sign Up</h1>
-        <div>Already have an account?</div>
-        <div>Click here to log in</div>
-      </div>
+    <div className='signuppage h-screen'>
       <div className="signup-container">
-        <form className="h-screen signup-form" onSubmit={handleSubmit}>
-          <div>First Name</div>
-          <input name="firstName" onChange={handleInputChange} placeholder="First Name" />
-          {errors.firstName && <p>{errors.firstName}</p>}
+        <form className="signup-form" onSubmit={handleSubmit}>
+        <div className="signuppage-header">
+          <div className='signuppage-content'>
+            <div>
+              <h1 className="container-title field-title">Sign Up</h1>
+            </div>
+            <div>Already have an account? 
+              <br /> 
+            <Link className="click-login" href="../SignIn">Click here to log in</Link>
+            </div>
+          </div>
+        </div>
+          <div className="signup-name-container">
+            <div className='field-input'>
+              <div className="field-title">First Name:</div>
+              <input className="field" name="firstName" onChange={handleInputChange} placeholder="First Name" />
+              {errors.firstName && <p>{errors.firstName}</p>}
+            </div>
+            <div className='field-input'>
+              <div className="field-title">Last Name:</div>
+              <input className="field" name="lastName" onChange={handleInputChange} placeholder="Last Name" />
+              {errors.lastName && <p>{errors.lastName}</p>}
+            </div>
+          </div>
 
-          <div>Last Name</div>
-          <input name="lastName" onChange={handleInputChange} placeholder="Last Name" />
-          {errors.lastName && <p>{errors.lastName}</p>}
+          <div className='signup-org-container signup-name-container'>
+            <div className='field-input'>
+              <div className="field-title">Company/Organization Name</div>
+              <input className="field" name="company" onChange={handleInputChange} placeholder="Company/Organization" />
+              {errors.company && <p>{errors.company}</p>}
+            </div>
+            <div className='field-input'>
+              <div className="field-title">Email:</div>
+              <input className="field" name="email" onChange={handleInputChange} placeholder="Email Address" />
+              {errors.email && <p>{errors.email}</p>}
+            </div>
+          </div>
 
-          <div>Company/Organization Name</div>
-          <input name="company" onChange={handleInputChange} placeholder="Company/Organization" />
-          {errors.company && <p>{errors.company}</p>}
+          <div className='signup-password-container signup-name-container'>
+            <div className='field-input'>
+              <div className="field-title">Password:</div>
+              <input className="field" name="password" onChange={handleInputChange} placeholder="Set Password" type="password" />
+              {errors.password && <p>{errors.password}</p>}
+            </div>
+            <div className='field-input'>
+              <div className="field-title">Confirm Password:</div>
+              <input className="field" name="confirmPassword" onChange={handleInputChange} placeholder="Confirm Password" type="password" />
+              {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+            </div>
+          </div>
 
-          <div>Email:</div>
-          <input name="email" onChange={handleInputChange} placeholder="Email Address" />
-          {errors.email && <p>{errors.email}</p>}
-
-          <div>Password:</div>
-          <input name="password" onChange={handleInputChange} placeholder="Set Password" type="password" />
-          {errors.password && <p>{errors.password}</p>}
-
-          <div>Confirm Password:</div>
-          <input name="confirmPassword" onChange={handleInputChange} placeholder="Confirm Password" type="password" />
-          {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-
-          <input type="submit" value="Continue" />
+          <div className='continue-button'>
+            <button className="signup-button" type="submit">Continue</button>
+          </div>
         </form>
       </div>
       <div className="choose-plan-container">
-        <div className="choose-plan">
-          <div className="choose-plan-header">Choose a plan</div>
+        <div className="choose-plan-header">
+          <div className="choose-plan-title">
+            <h1 className="container-title field-title">Choose a plan</h1>
+          </div>
           <div className="choose-plan-body">
             <div className="cp-per-month"> Per-device cost: $30 </div>
-            <div className="cp-per-device"> Amount of devices </div>
-            <div className="total-per-month"> N/A</div>
+            <div className="cp-per-device"> Amount of devices:  </div>
+            <div> 
+              <div className="total-per-month">Total Per Month: N/A</div>
+            </div>
           </div>
         </div>
-      <div className="payment-fields">
-        <div className="payment-header">Payment Information</div>
-        <form className="payment-form"> 
-          <div>Card Number</div>
-          <input name="cardNumber" onChange={handleInputChange} placeholder="Card Number" type="number" />
-          {/* {errors.cardNumber && <p>{errors.cardNumber}</p>} */}
-          <div>Expiration Date</div>
-          <input name="expirationDate" onChange={handleInputChange} placeholder="Expiration Date" type="number" />  
-          {/* {errors.expirationDate && <p>{errors.expirationDate}</p>} */}
-          <div>CVV</div>
-          <input name="cvv" onChange={handleInputChange} placeholder="CVV" type="number" />
-          {/* {errors.cvv && <p>{errors.cvv}</p>} */}
-          <button className="payment-button">Complete Checkout</button>
-        </form>
-      </div>
+        <div className="payment-fields">
+          <form className="payment-form"> 
+            <div className="payment-header">
+            <h1>Payment Information</h1>
+          </div>
+            <div className='field-input'>
+              <div className="field-title">Card Number</div>
+              <input className="field" name="cardNumber" onChange={handleInputChange} placeholder="Card Number" type="number" />
+              {/* {errors.cardNumber && <p>{errors.cardNumber}</p>} */}
+            </div>
+            <div className='signup-name-container'>
+              <div className='field-input'>
+                <div className="field-title">Expiration Date</div>
+                <input className="field" name="expirationDate" onChange={handleInputChange} placeholder="Expiration Date" type="number" />  
+                {/* {errors.expirationDate && <p>{errors.expirationDate}</p>} */}
+              </div>
+              <div className='field-input'>
+                <div className="field-title">CVV</div>
+                <input className="field" name="cvv" onChange={handleInputChange} placeholder="CVV" type="number" />
+                {/* {errors.cvv && <p>{errors.cvv}</p>} */}
+              </div>
+            </div>
+            <div className="payment-button">
+              <button className="signup-button">Complete Checkout</button>
+            </div>
+            <div>
+              <div> 
+                <div> 
+                  payment secured in SSL 
+                </div>
+                <div>
+                  All prices listed in USD
+                </div>
+              </div>
+            <div>
+              Your payment renews on june 1, 2023. To cancel your subscription, click here. 
+            </div>
+          </div>
+          </form>
+        </div>
       </div>
     </div>
   );

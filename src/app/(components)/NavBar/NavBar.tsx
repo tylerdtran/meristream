@@ -16,7 +16,8 @@ export default function NavBar() {
         <div className='navbar-total flex justify-between items-center w-full top-0 p-7'>
           <div className="nav-hamburger-title-holder">
             <div className="nav-title-holder">
-              <div className="nav-title uppercase">Meristream</div>
+
+              <div className="nav-title uppercase"><Link href="/">Meristream</Link></div>
             </div>
             <div className={`nav-mobile-menu ${isMobileMenuOpen ? '' : ''}`}>
               <MenuIcon className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`} onClick={toggleMobileMenu} style={{ transform: isMobileMenuOpen ? 'rotate(90deg)' : 'none' }}/>
