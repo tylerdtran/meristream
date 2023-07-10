@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import './SignIn.scss';
+import Link from 'next/link';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -21,48 +23,58 @@ const SignIn = () => {
   };
 
   return (
-    <div>
-      <div className='signup-header-container'>      
-        <div className='signup-header'>
-          <h2>Sign In</h2>
-          <div>Need to create an account? Click Here</div>
+    <div className="h-screen signin-container">
+      <div className="signin-content">
+        <div className="signin-fields">
+          <div className='signin-header-container'>      
+            <div className='signin-header'>
+              <h2 className="signin-title">Sign In</h2>
+              <div className='signin-account'><Link href="../SignUp">Need to create an account? Click Here</Link></div>
+            </div>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className='email-passwd'>
+                <div className="email-field general-field">
+                  <label htmlFor="email">Email Address:</label>
+                  <input
+                    className="field-input"
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    required
+                  />
+                </div>
+                <div className='password-field general-field'>
+                  <label htmlFor="password">Password:</label>
+                  <input
+                    className="field-input"
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    required
+                  />
+                </div>
+              </div>
+              <div className="signin-button">
+                <button className="continue-button" type="submit">Continue</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div className='email-passwd'>
-        <form onSubmit={handleSubmit}>
-          <div className="email-field">
-            <label htmlFor="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
+        <div className="signin-verification">
+          <div>
+            <div className="SignInVerification">We sent a verification code to your email, <br />please enter below to continue:</div>
           </div>
-          <div className='password-field'>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
-          </div>
-          <button type="submit">Sign In</button>
-        </form>
-      </div>
-      <div>
-        <div> Google Sign In Option</div>
-        <div> Facebook Sign In Option</div>
-      </div>
-      <div>
-        <div className="SignInVerification">We sent a verificationo code to your email, please enter below to continue:</div>
-        <form>  
-            <input type="number"></input>
-            <button type="submit">Continue</button>
-        </form>    
+          <form>  
+              <input className="verification-number-form"type="number"></input>
+          </form>  
+        </div>
+        <div className="signin-button">
+                <button className="continue-button" type="submit">Continue</button>
+              </div>
       </div>
     </div>
   );

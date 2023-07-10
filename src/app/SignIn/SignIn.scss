@@ -1,0 +1,69 @@
+.general-field {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+@media (max-width: 768px) {
+    .signin-content {
+        width: 90%;
+    }
+}
+
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 0.65);
+    letter-spacing: 0.15em;
+    text-align: left;
+
+}
+
+.signin-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.signin-title {
+    font-size: 2em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.signin-account:hover {
+    text-decoration: underline;
+}
+
+
+.signin-verification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.signin-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .continue-button {
+        padding: 0.5em;
+        border-radius: 0.5em;
+        width: 40%;
+        color: rgba(0, 0, 0, 0.65);
+        background-color: rgba(255, 255, 255, 1);
+    }
+}
+.email-passwd {
+    padding: 0em, 1.5em;
+}
+
+
+.field-input {
+    padding: 0.5em;
+    border-radius: 0.5em;
+}

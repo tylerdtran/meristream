@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="footer-links flex flex-row gap-4">
                 <Link href="/tou"><div>Terms of Use </div></Link>
                 <Link href="/pp"> <div>Privacy Policy</div></Link>
-                <Link href="/about"> <div>About</div></Link>
+                <Link href="../../SignIn"> <div>About</div></Link>
             </div>
             <div className="footer-logo">
                 <div>© 2023 Meristream LLC</div>
