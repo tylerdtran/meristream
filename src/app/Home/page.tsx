@@ -10,6 +10,7 @@ export default function HomePage() {
         <main className="h-screen">
         <div className="flex flex-col items-center justify-center h-full w-full">
         <div>Click the orb to begin!</div>
+        {/* <div>Loading percent</div> */}
           <div className="meristream-logo-center flex items-center justify-center">
             <Image className="meristream-logo" src={Meristream_Logo} alt="Meristream Logo" />
           </div>
