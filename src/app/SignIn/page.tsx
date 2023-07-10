@@ -22,37 +22,48 @@ const SignIn = () => {
 
   return (
     <div>
-      <h2>Sign In</h2>
-      <div>Need to create an account? Click Here</div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
+      <div className='signup-header-container'>      
+        <div className='signup-header'>
+          <h2>Sign In</h2>
+          <div>Need to create an account? Click Here</div>
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </div>
-        <button type="submit">Sign In</button>
-      </form>
-      <div> Google Sign In Option</div>
-      <div className="SignInVerification">We sent a verificationo code to your email, please enter below to continue:</div>
+      </div>
+      <div className='email-passwd'>
+        <form onSubmit={handleSubmit}>
+          <div className="email-field">
+            <label htmlFor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={handleEmailChange}
+              required
+            />
+          </div>
+          <div className='password-field'>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              required
+            />
+          </div>
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      <div>
+        <div> Google Sign In Option</div>
+        <div> Facebook Sign In Option</div>
+      </div>
+      <div>
+        <div className="SignInVerification">We sent a verificationo code to your email, please enter below to continue:</div>
         <form>  
             <input type="number"></input>
             <button type="submit">Continue</button>
-        </form>     
+        </form>    
+      </div>
     </div>
   );
 };
