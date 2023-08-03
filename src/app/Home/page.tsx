@@ -2,9 +2,10 @@ import './page.scss';
 import Image from 'next/image';
 import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
+import { supabase } from '../../utils/supabase';
 
-
-export default function HomePage() {
+ export default function HomePage() {
+    // console.log(supabase.auth.user())
     return (
         // <main className="flex h-screen flex-col items-center justify-between">
         <main className="h-screen">
@@ -38,7 +39,11 @@ export default function HomePage() {
           <div className="ellipse-container">
             <Ellipse className="radial3-circle" />
           </div> */}
+          {/* { customers.map((customer) => (
+            <p key={customers.id}>{customer.title}</p>
+          ))} */}
         </div>
       </main>
     );
 }
+

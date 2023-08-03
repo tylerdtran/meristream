@@ -195,3 +195,57 @@ const SignUp: React.FC = () => {
 }
 
 export default SignUp;
+
+// cost to register the user
+// const Register = async () => {
+//   const { data, error } = await supabase.auth.signUp({
+//     email, 
+//     password 
+//   }, 
+//   { 
+//     data: {
+//       username
+//     }
+//   })
+//   if (error) {
+//     setRMsg(error.message)
+//   }else {
+//     setRMsg('User created successfully')
+//     setUser('data.user')
+//   }
+// }
+ 
+// // /*
+// // Signing the User out 
+// async function signOut() {
+//   const { error } = await supabase.auth.signOut()
+// }
+// //   const [Rmsg, setRMsg] = useState(''); // Registration message
+
+// // Resetting the User's Password
+// await supabase.auth.resetPasswordForEmail('hello@example.com', {
+//   redirectTo: 'http://example.com/account/update-password',
+// })
+
+// await supabase.auth.updateUser({ password: new_password })
+
+// // api/auth/callback.ts
+
+// // The code is retrieved from the query parameter - use whichever mechanism is recommended
+// // for your app/framework. This is just an example.
+// const code = url.searchParams.get('code')
+
+// // call the Supabase API to exchange the code for a session
+// await supabase.auth.exchangeCodeForSession(code)
+
+// // api/auth/callback.ts
+
+// // The password page path is retrieved from the query parameter - use whichever mechanism is recommended
+// // for your app/framework. This is just an example.
+// const next = url.searchParams.get('next')
+
+// // using NextJS API response object in this example
+// res.redirect(next)
+
+// await supabase.auth.updateUser({ password: new_password })
+// */
