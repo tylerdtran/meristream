@@ -3,84 +3,62 @@
 import React, { useState } from 'react';
 import './SignUp.scss';
 import Link from 'next/link';
+import { supabase } from '../../utils/supabase';
 
-interface Inputs {
-  firstName: string;
-  lastName: string;
-  company: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
-interface Errors {
-  firstName?: string;
-  lastName?: string;
-  company?: string;
-  email?: string;
-  password?: string;
-  confirmPassword?: string;
-}
-
-interface PaymentInputs {
-  cardNumber: string;
-  expiryDate: string;
-  cvc: string;
-
-}
-interface PaymentErrors {
-  cardNumber?: string;
-  expiryDate?: string;
-  cvc?: string;
-}
-
+import ReactDOM from "react-dom";
+import { useForm, UseFormReturn } from "react-hook-form";
 
 const SignUp: React.FC = () => {
-  const [inputs, setInputs] = useState<Inputs>({
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [companyName, setCompanyName] = useState('');
 
-  const [errors, setErrors] = useState<Errors>({});
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
-  }
-
-  const validateForm = () => {
-    let formErrors: Errors = {};
-
-    if(!inputs.firstName) formErrors.firstName = "This field is required";
-    if(!inputs.lastName) formErrors.lastName = "This field is required";
-    if(!inputs.company) formErrors.company = "This field is required";
-    if(!inputs.email) formErrors.email = "This field is required";
-    else if(!/^\S+@\S+$/.test(inputs.email)) formErrors.email = "Invalid email";
-    if(!inputs.password) formErrors.password = "Password is required (minimum 8 characters)";
-    else if(inputs.password.length < 8) formErrors.password = "Password should be minimum 8 characters";
-    if(!inputs.confirmPassword) formErrors.confirmPassword = "This field is required";
-    else if(inputs.confirmPassword !== inputs.password) formErrors.confirmPassword = "The passwords do not match";
-
-    setErrors(formErrors);
-
-    return Object.keys(formErrors).length === 0;
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const Register = async (e: any) => { 
     e.preventDefault();
-    if(validateForm()) {
-      console.log(inputs);
-      // Add your onSubmit logic here
+    try {
+    const { data, error } = await supabase.auth.signUp(
+      {
+        email: email,
+        password: password,
+        options: {
+          data: {
+            first_name: firstName,
+            last_name: lastName,
+            company_name: companyName
+          }
+        }
+      }
+    )
+    } catch (error) {
+      console.log(error)
     }
   }
+
+  const {
+    register,
+  //   errors
+  // } = useForm();
+  formState: { errors }
+  } = useForm();
+
+  const handlePasswordChange = (e: any) => {
+    const value = e.target.value;
+    setPassword(value); // Update the password state on input change
+
+    // Manually register the password field with custom validation
+    register("password", {
+      required: true,
+      minLength: 5,
+      value // You can also include the value in the validation rules
+    });
+  };
 
   return (
     <div className='signuppage h-screen'>
       <div className="signup-container">
-        <form className="signup-form" onSubmit={handleSubmit}>
+        <form className="signup-form" onSubmit={Register}>
         <div className="signuppage-header">
           <div className='signuppage-content'>
             <div>
@@ -95,39 +73,40 @@ const SignUp: React.FC = () => {
           <div className="signup-name-container">
             <div className='field-input'>
               <div className="field-title">First Name:</div>
-              <input className="field" name="firstName" onChange={handleInputChange} placeholder="First Name" />
-              {errors.firstName && <p>{errors.firstName}</p>}
+              <input className="field" name="firstName" onChange={(e) => setFirstName(e.target.value)} placeholder="First Name" />
             </div>
             <div className='field-input'>
               <div className="field-title">Last Name:</div>
-              <input className="field" name="lastName" onChange={handleInputChange} placeholder="Last Name" />
-              {errors.lastName && <p>{errors.lastName}</p>}
+              <input className="field" name="lastName" onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" />
             </div>
           </div>
 
           <div className='signup-org-container signup-name-container'>
             <div className='field-input'>
               <div className="field-title">Company/Organization Name</div>
-              <input className="field" name="company" onChange={handleInputChange} placeholder="Company/Organization" />
-              {errors.company && <p>{errors.company}</p>}
+              <input className="field" name="company" onChange={(e) => setCompanyName(e.target.value)} placeholder="Company/Organization" />
             </div>
             <div className='field-input'>
               <div className="field-title">Email:</div>
-              <input className="field" name="email" onChange={handleInputChange} placeholder="Email Address" />
-              {errors.email && <p>{errors.email}</p>}
+              <input className="field" name="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" />
             </div>
           </div>
 
           <div className='signup-password-container signup-name-container'>
             <div className='field-input'>
               <div className="field-title">Password:</div>
-              <input className="field" name="password" onChange={handleInputChange} placeholder="Set Password" type="password" />
-              {errors.password && <p>{errors.password}</p>}
+              <input className={`field form-control ${errors.password ? 'is-invalid' : ''}`} name="password" 
+               value={password}
+              onChange={handlePasswordChange} placeholder="Set Password" type="password" 
+              />
+              <div className="invalid-feedback">{errors.password?.message?.toString()}</div>
             </div>
             <div className='field-input'>
               <div className="field-title">Confirm Password:</div>
-              <input className="field" name="confirmPassword" onChange={handleInputChange} placeholder="Confirm Password" type="password" />
-              {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+              <input placeholder="Confirm Password" type="password" 
+                    {...register('confirmPwd', { required: true })}
+                    className={`field form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}/>
+              <div className="invalid-feedback">{errors.password?.message?.toString()}</div>
             </div>
           </div>
 
@@ -136,90 +115,52 @@ const SignUp: React.FC = () => {
           </div>
         </form>
       </div>
-      <div className="choose-plan-container">
-        <div className="choose-plan-header">
-          <div className="choose-plan-title">
-            <h1 className="container-title field-title">Choose a plan</h1>
-          </div>
-          <div className="choose-plan-body">
-            <div className="cp-per-month"> Per-device cost: $30 </div>
-            <div className="cp-per-device"> Amount of devices:  </div>
-            <div> 
-              <div className="total-per-month">Total Per Month: N/A</div>
-            </div>
-          </div>
-        </div>
-        <div className="payment-fields">
-          <form className="payment-form"> 
-            <div className="payment-header">
-            <h1>Payment Information</h1>
-          </div>
-            <div className='field-input'>
-              <div className="field-title">Card Number</div>
-              <input className="field" name="cardNumber" onChange={handleInputChange} placeholder="Card Number" type="number" />
-              {/* {errors.cardNumber && <p>{errors.cardNumber}</p>} */}
-            </div>
-            <div className='signup-name-container'>
-              <div className='field-input'>
-                <div className="field-title">Expiration Date</div>
-                <input className="field" name="expirationDate" onChange={handleInputChange} placeholder="Expiration Date" type="number" />  
-                {/* {errors.expirationDate && <p>{errors.expirationDate}</p>} */}
-              </div>
-              <div className='field-input'>
-                <div className="field-title">CVV</div>
-                <input className="field" name="cvv" onChange={handleInputChange} placeholder="CVV" type="number" />
-                {/* {errors.cvv && <p>{errors.cvv}</p>} */}
-              </div>
-            </div>
-            <div className="payment-button">
-              <button className="signup-button">Complete Checkout</button>
-            </div>
-            <div>
-              <div> 
-                <div> 
-                  payment secured in SSL 
-                </div>
-                <div>
-                  All prices listed in USD
-                </div>
-              </div>
-            <div>
-              Your payment renews on june 1, 2023. To cancel your subscription, click here. 
-            </div>
-          </div>
-          </form>
-        </div>
-      </div>
     </div>
   );
 }
 
 export default SignUp;
 
-// cost to register the user
-// const Register = async () => {
-//   const { data, error } = await supabase.auth.signUp({
-//     email, 
-//     password 
-//   }, 
-//   { 
-//     data: {
-//       username
-//     }
-//   })
-//   if (error) {
-//     setRMsg(error.message)
-//   }else {
-//     setRMsg('User created successfully')
-//     setUser('data.user')
-//   }
+// name="confirmPassword" onChange={handleInputChange}
+
+// import React from 'react'
+
+//   return (
+//     <div className="container mt-5">
+//       <h2>React Confirm Password Validation Example</h2>
+//       <form onSubmit={handleSubmit(onSubmit)}>
+//         <div className="form-group">
+//           <label>Password</label>
+//           <input
+//             name="password"
+//             type="password"
+//             {...register('password')}
+//             className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+//           />
+//           <div className="invalid-feedback">{errors.password?.message}</div>
+//         </div>
+//         <div className="form-group">
+//           <label>Confirm Password</label>
+//           <input
+//             name="confirmPwd"
+//             type="password"
+//             {...register('confirmPwd')}
+//             className={`form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}
+//           />
+//           <div className="invalid-feedback">{errors.confirmPwd?.message}</div>
+//         </div>
+//         <div className="mt-3">
+//           <button type="submit" className="btn btn-primary">
+//             Submit
+//           </button>
+//         </div>
+//       </form>
+//     </div>
+//   )
 // }
+
  
 // // /*
-// // Signing the User out 
-// async function signOut() {
-//   const { error } = await supabase.auth.signOut()
-// }
 // //   const [Rmsg, setRMsg] = useState(''); // Registration message
 
 // // Resetting the User's Password
@@ -249,3 +190,56 @@ export default SignUp;
 
 // await supabase.auth.updateUser({ password: new_password })
 // */
+
+
+{/* <div className="choose-plan-container">
+<div className="choose-plan-header">
+  <div className="choose-plan-title">
+    <h1 className="container-title field-title">Choose a plan</h1>
+  </div>
+  <div className="choose-plan-body">
+    <div className="cp-per-month"> Per-device cost: $30 </div>
+    <div className="cp-per-device"> Amount of devices:  </div>
+    <div> 
+      <div className="total-per-month">Total Per Month: N/A</div>
+    </div>
+  </div>
+</div>
+<div className="payment-fields">
+  <form className="payment-form"> 
+    <div className="payment-header">
+    <h1>Payment Information</h1>
+  </div>
+    <div className='field-input'>
+      <div className="field-title">Card Number</div>
+      <input className="field" name="cardNumber" onChange={handleInputChange} placeholder="Card Number" type="number" />
+    </div>
+    <div className='signup-name-container'>
+      <div className='field-input'>
+        <div className="field-title">Expiration Date</div>
+        <input className="field" name="expirationDate" onChange={handleInputChange} placeholder="Expiration Date" type="number" />  
+      </div>
+      <div className='field-input'>
+        <div className="field-title">CVV</div>
+        <input className="field" name="cvv" onChange={handleInputChange} placeholder="CVV" type="number" />
+      </div>
+    </div>
+    <div className="payment-button">
+      <button className="signup-button">Complete Checkout</button>
+    </div>
+    <div>
+      <div> 
+        <div> 
+          payment secured in SSL 
+        </div>
+        <div>
+          All prices listed in USD
+        </div>
+      </div>
+    <div>
+      Your payment renews on june 1, 2023. To cancel your subscription, click here. 
+    </div>
+  </div>
+  </form>
+</div>
+</div> */}
