@@ -4,8 +4,11 @@ import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
 import { supabase } from '../../utils/supabase';
 
+
  export default function HomePage() {
-    // console.log(supabase.auth.user())
+    console.log(supabase.auth.getUser())
+    console.log('success')
+
     return (
         // <main className="flex h-screen flex-col items-center justify-between">
         <main className="h-screen">

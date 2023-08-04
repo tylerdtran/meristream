@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { supabase } from '../../utils/supabase';
 
 import ReactDOM from "react-dom";
-import { useForm, UseFormReturn } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import { useRouter } from 'next/navigation';
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -14,11 +15,23 @@ const SignUp: React.FC = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');
+  const router = useRouter()
 
   const Register = async (e: any) => { 
     e.preventDefault();
+    const confirmPwdInput = document.querySelector<HTMLInputElement>('input[name="confirmPwd"]');
+    const confirmPwd = confirmPwdInput ? confirmPwdInput.value : '';
+  
+    if (password !== confirmPwd) {
+      // You can replace this with a more user-friendly error message display
+      alert("Passwords do not match!");
+  
+      // Stop the registration process
+      return;
+    }
+    
     try {
-    const { data, error } = await supabase.auth.signUp(
+    const { data , error } = await supabase.auth.signUp(
       {
         email: email,
         password: password,
@@ -31,6 +44,14 @@ const SignUp: React.FC = () => {
         }
       }
     )
+
+    if (error) {
+      throw error;
+    }
+
+    console.log("User registered successfully:", data.user);
+    
+    router.push('/')
     } catch (error) {
       console.log(error)
     }
@@ -38,8 +59,6 @@ const SignUp: React.FC = () => {
 
   const {
     register,
-  //   errors
-  // } = useForm();
   formState: { errors }
   } = useForm();
 
@@ -103,10 +122,16 @@ const SignUp: React.FC = () => {
             </div>
             <div className='field-input'>
               <div className="field-title">Confirm Password:</div>
-              <input placeholder="Confirm Password" type="password" 
-                    {...register('confirmPwd', { required: true })}
-                    className={`field form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}/>
-              <div className="invalid-feedback">{errors.password?.message?.toString()}</div>
+              <input 
+                placeholder="Confirm Password" 
+                type="password" 
+                {...register('confirmPwd', {
+                  required: true,
+                  validate: (value) => value === password || "The passwords do not match"
+                })} 
+                className={`field form-control ${errors.confirmPwd ? 'is-invalid' : ''}`}
+              />
+              <div className="invalid-feedback">{errors.confirmPwd?.message?.toString()}</div>
             </div>
           </div>
 
