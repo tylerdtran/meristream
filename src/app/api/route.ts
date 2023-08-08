@@ -5,9 +5,13 @@ import { supabase } from '../../utils/supabase';
 // const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY!)
 
 export async function POST(request: Request) {
-    // if(req.query.API_ROUTE_SECRET !== process.env.API_ROUTE_SECRET) {
-    //     return res.status(401).send('Unauthorized');
-    // }
+    const {searchParams} = new URL(request.url);
+    const param = searchParams.get('API_ROUTE_SECRET');
+    console.log(param)
+
+    if(param !== process.env.API_ROUTE_SECRET) {
+        return NextResponse.json('Unauthorized', {status: 500});
+    }
     // if(!req.query || req.query.API_ROUTE_SECRET !== process.env.API_ROUTE_SECRET) {
     //     return res.status(401).send('Unauthorized');
     // }
@@ -21,9 +25,11 @@ export async function POST(request: Request) {
     
     // return NextResponse.json(requestData);
 
+    console.log()
+
     try {
         const customer = await stripe.customers.create({
-        email: requestData.email,
+            email: requestData.email,
         });
         
         const { error } = await supabase
@@ -44,27 +50,3 @@ export async function POST(request: Request) {
     
 }
 
-
-
-    // const customer = await stripe.customers.create({
-    //     email: 'tylerdtran@g.ucla.edu'
-    // }) 
-     
-//     try {
-//     await supabase.from('user_profiles').update({
-//         stripe_customer_id: customer.id 
-//     }).eq('id', '93b27f75-eba9-4816-b582-903aa05b18a7')
-// } catch (error) {
-//     console.log(error)
-// }
-
-    // const customer = await stripe.customers.create({
-    //     email: request.body.record.email,
-    //   });
-    
-    // await supabase
-    //     .from("users_profiles")
-    //     .update({
-    //       stripe_customer_id: customer.id,
-    //     })
-    //     .eq("id", request.body.record.id);
