@@ -6,7 +6,7 @@ import { supabase } from '../../utils/supabase';
 
 
  export default function HomePage() {
-    console.log(supabase.auth.getUser())
+    // console.log(supabase.auth.getUser())
     console.log('success')
 
     return (

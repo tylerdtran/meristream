@@ -29,7 +29,10 @@ const SignUp: React.FC = () => {
       // Stop the registration process
       return;
     }
-    
+    if (password.length < 5) {
+      alert('password is not long enough')
+    }
+
     try {
     const { data , error } = await supabase.auth.signUp(
       {
