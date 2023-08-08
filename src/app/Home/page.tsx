@@ -4,8 +4,11 @@ import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
 import { supabase } from '../../utils/supabase';
 
+
  export default function HomePage() {
-    // console.log(supabase.auth.user())
+    // console.log(supabase.auth.getUser())
+    console.log('success')
+
     return (
         // <main className="flex h-screen flex-col items-center justify-between">
         <main className="h-screen">
@@ -13,7 +16,7 @@ import { supabase } from '../../utils/supabase';
         <div>Click the orb to begin!</div>
         {/* <div>Loading percent</div> */}
           <div className="meristream-logo-center flex items-center justify-center">
-            <Image className="meristream-logo" src={Meristream_Logo} alt="Meristream Logo" />
+            <Image className="meristream-logo" src={Meristream_Logo} priority alt="Meristream Logo" />
           </div>
 
         </div>

@@ -3,47 +3,59 @@ import { useState } from 'react';
 import './SignIn.scss';
 import Link from 'next/link';
 import { supabase } from '../../utils/supabase';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
   // const [oneTimePassword, setOneTimePassword] = useState('');
-  const [Lmsg, setLMsg] = useState(''); // Login message
-  
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // Handle sign-in logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault();
+  //   // Handle sign-in logic here
+  //   console.log('Email:', email);
+  //   console.log('Password:', password);
     
-  };
+  // };
 
   
-  const Login = async () => {
-    const router = useRouter()
-    // inserted .auth.signInWithPassword to write to the supabase auth sector of the database
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
-    if (error) {
-      setLMsg(error.message)
-    }else {
-      setLMsg('Login successful')
-      console.log('Login successful')
-      router.push('/')
+  // const Login = async () => {
+  //   const router = useRouter()
+  //   // inserted .auth.signInWithPassword to write to the supabase auth sector of the database
+  //   const { data, error } = await supabase.auth.signInWithPassword({
+  //     email,
+  //     password,
+  //   })
+  //   if (error) {
+  //     console.log(error.message)
+  //   }else {
+  //     console.log('Login successful')
+  //     router.push('/')
+  //   }
+  // }
+  const Login = async (e: any) => {
+    e.preventDefault();
+  
+    try {
+      // Call the authentication method
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+  
+      // Check for any errors during authentication
+      if (error) {
+        throw error;
+      } else {
+        console.log('Login successful');
+        console.log(supabase.auth.getUser())
+        router.push('/'); // Navigate to the desired route on successful login
+      }
+    } catch (error) {
+      console.log('Error during login:', error);
     }
-  }
+  };
 
   return (
     <div className="h-screen signin-container">
@@ -65,7 +77,7 @@ const SignIn = () => {
                     type="email"
                     id="email"
                     value={email}
-                    onChange={handleEmailChange}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                   />
                 </div>
@@ -76,7 +88,7 @@ const SignIn = () => {
                     type="password"
                     id="password"
                     value={password}
-                    onChange={handlePasswordChange}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
@@ -85,20 +97,8 @@ const SignIn = () => {
                 <button className="continue-button" type="submit">Continue</button>
               </div>
             </form>
-            <p>{Lmsg}</p>
           </div>
         </div>
-        {/* <div className="signin-verification">
-          <div>
-            <div className="SignInVerification">We sent a verification code to your email, <br />please enter below to continue:</div>
-          </div>
-          <form>  
-              <input className="verification-number-form"type="number"></input>
-          </form>  
-        </div> 
-        <div className="signin-button">
-                <button className="continue-button" type="submit">Continue</button>
-        </div> */}
       </div>
     </div>
   );
