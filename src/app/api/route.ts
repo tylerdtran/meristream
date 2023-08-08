@@ -19,9 +19,12 @@ export async function POST(request: Request) {
         { apiVersion: '2022-11-15' })
 
     const requestData = await request.json()
+    console.log(requestData)
+    // const requestData = supabase.auth.getUser()
 
     // console.log(requestData)
-    console.log(requestData.email)
+    console.log(requestData.record.email)
+
     
     // return NextResponse.json(requestData);
 
@@ -29,7 +32,7 @@ export async function POST(request: Request) {
 
     try {
         const customer = await stripe.customers.create({
-            email: requestData.email,
+            email: requestData.record.email,
         });
         
         const { error } = await supabase
@@ -37,7 +40,10 @@ export async function POST(request: Request) {
         .update({
             stripe_customer_id: customer.id,
         })
-        .eq("id", requestData.id);
+        .eq("id", requestData.record.id);
+        if (!error) {
+            console.log('success')
+        }
         console.log(error)
 
         return NextResponse.json({ message: `stripe customer created: ${customer.id}` });
@@ -45,8 +51,5 @@ export async function POST(request: Request) {
         console.error('Error occurred:', error);
         return NextResponse.json({ message: `Error occurred: ${error}`});
     }
-
-    // return NextResponse.json({ message: 'Hello world!' });
-    
 }
 

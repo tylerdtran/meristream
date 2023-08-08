@@ -16,7 +16,7 @@ import { supabase } from '../../utils/supabase';
         <div>Click the orb to begin!</div>
         {/* <div>Loading percent</div> */}
           <div className="meristream-logo-center flex items-center justify-center">
-            <Image className="meristream-logo" src={Meristream_Logo} alt="Meristream Logo" />
+            <Image className="meristream-logo" src={Meristream_Logo} priority alt="Meristream Logo" />
           </div>
 
         </div>
