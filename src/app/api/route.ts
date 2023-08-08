@@ -25,13 +25,14 @@ export async function POST(request: Request) {
         const customer = await stripe.customers.create({
         email: requestData.email,
         });
-        console.log(customer.id)
-            await supabase
-            .from("user_profiles")
-            .update({
-                stripe_customer_id: customer.id,
-            })
-            .eq("id", requestData.id);
+        
+        const { error } = await supabase
+        .from("user_profiles")
+        .update({
+            stripe_customer_id: customer.id,
+        })
+        .eq("id", requestData.id);
+        console.log(error)
 
         return NextResponse.json({ message: `stripe customer created: ${customer.id}` });
     } catch (error) {
@@ -39,11 +40,10 @@ export async function POST(request: Request) {
         return NextResponse.json({ message: `Error occurred: ${error}`});
     }
 
-    return NextResponse.json({ message: 'Hello world!' });
+    // return NextResponse.json({ message: 'Hello world!' });
     
 }
 
-// export default handler;
 
 
     // const customer = await stripe.customers.create({
