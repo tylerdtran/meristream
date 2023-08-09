@@ -3,16 +3,12 @@ import './page.scss';
 import Image from 'next/image';
 import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
-import { supabase } from '../../utils/supabase';
+// import { supabase } from '../../utils/supabase';
 import { useUser } from '../../utils/Context';
 
-//* new code*/
-/*
-import { useUser } from '../context/user';
-*/
  export default function HomePage() {
-    const { user} = useUser();
-    console.log(user)
+    // const { user} = useUser();
+    // console.log(user)
     console.log('success')
 
 
@@ -23,7 +19,9 @@ import { useUser } from '../context/user';
         <div>Click the orb to begin!</div>
         {/* <div>Loading percent</div> */}
           <div className="meristream-logo-center flex items-center justify-center">
-            <Image className="meristream-logo" src={Meristream_Logo} priority alt="Meristream Logo" />
+            <button>
+              <Image className="meristream-logo" src={Meristream_Logo} priority alt="Meristream Logo" />
+            </button>
           </div>
 
         </div>

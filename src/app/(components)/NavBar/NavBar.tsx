@@ -30,7 +30,7 @@ export default function NavBar() {
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
               <Link href="../../SignUp"><div>Devices</div></Link>
-              <Link href="../../License"><div>License</div></Link>
+              <Link href="../../License"><div>Pricing</div></Link>
               <Link href="/account"><div>Account</div></Link>
           </div>
           <div className="nav-regular-menu">
