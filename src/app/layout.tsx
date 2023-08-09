@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 // import NavBar from '@/app/(components)/NavBar/NavBar'
 // import Footer from '@/app/(components)/Footer/Footer'
 import { NavBar, Footer } from '@/app/(components)/exports'
+import UserProvider from '../utils/Context';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,12 +19,30 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <NavBar />
-        {children}
-        <Footer />
+
+      <html lang="en">
+        <body className={inter.className}>
+          <UserProvider>
+            <NavBar />
+              {children}
+            <Footer />
+          </UserProvider>
         </body>
-    </html>
+      </html>
+ 
   )
 }
+
+/* 
+equivalent to _app.js in nextjs
+import UserProvider from '../utils/context';
+
+function MyApp({ Component, pageProps }) {
+  
+  return (
+  <User.Provider>
+    Component {...pageProps} />
+  </User.Provider>
+  )
+}
+*/

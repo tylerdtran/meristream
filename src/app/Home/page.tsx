@@ -1,13 +1,20 @@
+'use client';
 import './page.scss';
 import Image from 'next/image';
 import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
 import { supabase } from '../../utils/supabase';
+import { useUser } from '../../utils/Context';
 
-
+//* new code*/
+/*
+import { useUser } from '../context/user';
+*/
  export default function HomePage() {
-    // console.log(supabase.auth.getUser())
+    const { user} = useUser();
+    console.log(user)
     console.log('success')
+
 
     return (
         // <main className="flex h-screen flex-col items-center justify-between">

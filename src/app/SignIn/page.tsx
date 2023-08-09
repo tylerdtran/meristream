@@ -4,58 +4,40 @@ import './SignIn.scss';
 import Link from 'next/link';
 import { supabase } from '../../utils/supabase';
 import { useRouter } from 'next/navigation';
+import { useUser } from '../../utils/Context';
 
 const SignIn = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const router = useRouter();
-  // const [oneTimePassword, setOneTimePassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const { login } = useUser();
+  // const login = async (e: any) => {
+  //   e.preventDefault();
+  
+  //   try {
+  //     // Call the authentication method
+  //     const { data, error } = await supabase.auth.signInWithPassword({
+  //       email: email,
+  //       password: password,
+  //     });
 
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault();
-  //   // Handle sign-in logic here
-  //   console.log('Email:', email);
-  //   console.log('Password:', password);
-    
+  //       if (error) {
+  //         setErrorMessage('Incorrect email or password. Please try again.');
+  //       } else {
+  //         console.log('Login successful');
+  //         console.log(supabase.auth.getUser())
+  //         router.push('/');
+  //       }
+  //     } catch (error) {
+  //       console.log('Error during login:', error);
+  //     }
   // };
-
-  
-  // const Login = async () => {
-  //   const router = useRouter()
-  //   // inserted .auth.signInWithPassword to write to the supabase auth sector of the database
-  //   const { data, error } = await supabase.auth.signInWithPassword({
-  //     email,
-  //     password,
-  //   })
-  //   if (error) {
-  //     console.log(error.message)
-  //   }else {
-  //     console.log('Login successful')
-  //     router.push('/')
-  //   }
-  // }
-  const Login = async (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-  
-    try {
-      // Call the authentication method
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-  
-      // Check for any errors during authentication
-      if (error) {
-        throw error;
-      } else {
-        console.log('Login successful');
-        console.log(supabase.auth.getUser())
-        router.push('/'); // Navigate to the desired route on successful login
-      }
-    } catch (error) {
-      console.log('Error during login:', error);
-    }
-  };
+    login(email, password);
+  }
+
 
   return (
     <div className="h-screen signin-container">
@@ -68,7 +50,7 @@ const SignIn = () => {
             </div>
           </div>
           <div>
-            <form onSubmit={Login}>
+            <form onSubmit={handleSubmit}>
               <div className='email-passwd'>
                 <div className="email-field general-field">
                   <label htmlFor="email">Email Address:</label>
@@ -92,6 +74,7 @@ const SignIn = () => {
                     required
                   />
                 </div>
+                <div className="error-message text-red-100">{errorMessage}</div>
               </div>
               <div className="signin-button">
                 <button className="continue-button" type="submit">Continue</button>
@@ -107,9 +90,4 @@ const SignIn = () => {
 export default SignIn;
 
 
-
-
-// const { email } = req.body; 
-// const customer = await stripe.customers.create({ email: email });
-// res.send(customer);
 
