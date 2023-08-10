@@ -20,4 +20,4 @@ const DeviceDisplay = () => {
     )
 }
 
-export default DeviceDisplay;
+export default {DeviceDisplay};

@@ -40,4 +40,4 @@ const AccDropDown = () => {
     );
 }
 
-export default AccDropDown;
+export default { AccDropDown };
