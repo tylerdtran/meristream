@@ -1,6 +1,7 @@
 import './DeviceLimitation.scss'
 
-export default function DeviceLimitation() {
+
+const DeviceLimitation = () => {
     return (
         <div className="h-screen device-limit">
             <div className="device-limit-container">
@@ -25,3 +26,4 @@ export default function DeviceLimitation() {
         </div>
     )
 }
+export default DeviceLimitation;
