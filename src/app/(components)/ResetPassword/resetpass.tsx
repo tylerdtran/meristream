@@ -1,7 +1,7 @@
 import { supabase } from '../../../utils/supabase';
 import { useState } from 'react';
 import { useUser } from '../../../utils/Context';
-
+import { CSSTransition } from 'react-transition-group';
 
 const handleResetPassword = async (e: any) => {
     const { user } = useUser();
@@ -11,7 +11,7 @@ const handleResetPassword = async (e: any) => {
 
     e.preventDefault();
     const { data, error } = await supabase.auth.resetPasswordForEmail(user.email, {
-      redirectTo: 'https://example.com/update-password',
+        redirectTo: 'https://example.com/update-password',
     })
 
     if (error) {
@@ -20,7 +20,7 @@ const handleResetPassword = async (e: any) => {
         setErrorMessage('Reset password email sent');
         const { data, error } = await supabase.auth.updateUser({
             password: newPassword
-          })
+            })
     }
 
     return (
