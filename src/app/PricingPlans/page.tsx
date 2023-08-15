@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Link from 'next/link';
 import Stripe from 'stripe';
@@ -22,25 +23,25 @@ const Pricing = async () => {
         })
     );
 
-    const handleSubscribe = async (priceId: string) => {
-        const { sessionId } = await fetch('/api/create-checkout-session', {
-            body: JSON.stringify({ priceId }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            method: 'POST',
-        }).then((res) => res.json());
+    // const handleSubscribe = async (priceId: string) => {
+    //     const { sessionId } = await fetch('/api/create-checkout-session', {
+    //         body: JSON.stringify({ priceId }),
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         method: 'POST',
+    //     }).then((res) => res.json());
 
-        // const { error } = await stripe.redirectToCheckout({
-        //     sessionId: sessionId,
-        // });
+    //     // const { error } = await stripe.redirectToCheckout({
+    //     //     sessionId: sessionId,
+    //     // });
 
-        // if (error) {
-        //     console.error(error);
-        // }
-        // Find a way to redirect to stripe checkout
-        // redirect to stripe checkout 
-    }
+    //     // if (error) {
+    //     //     console.error(error);
+    //     // }
+    //     // Find a way to redirect to stripe checkout
+    //     // redirect to stripe checkout 
+    // }
 
     return (
         <div className="w-full max-w-3xl mx-auto py-16 flex justify-around justify-center align-items gap-4 ">
@@ -55,7 +56,7 @@ const Pricing = async () => {
                                     ${plan.price! / 100} / {plan.interval}
                                 </p>
                             </div>
-                            <button onClick={() => handleSubscribe(plan.id)} className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white border-4 rounded-md hover:bg-zinc-900">
+                            <button className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white border-4 rounded-md hover:bg-zinc-900">
                                 <Link href={`/PricingPlans/${plan.id}`}>Subscribe</Link>
                                 {/* Take user to respective pricing checkout portal */}
                             </button>
