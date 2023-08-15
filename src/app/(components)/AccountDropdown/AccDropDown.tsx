@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef }from 'react';
 import { useUser } from '../../../utils/Context';
-import handleResetPassword from '../ResetPassword/resetpass';
+import handleResetPassword from '../../forgot-password/resetpass';
 
 
 // AccountDropdown

@@ -179,12 +179,12 @@
 'use client';
 import React, { useState, useEffect, useRef }from 'react';
 import { useUser } from '../../../utils/Context';
-import handleResetPassword from '../ResetPassword/resetpass';
+import handleResetPassword from '../../forgot-password/resetpass';
 // import React, { useState, useRef } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
-import  AccDropDown  from '../AccountDropdown/AccDropDown';
+// import  AccDropDown  from '../AccountDropdown/AccDropDown';
 
 export default function NavBar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -295,10 +295,9 @@ function DropdownMenu() {
   return (
     <div className="dropdown">
       <div className="menu">
-
         <DropdownItem className="email-title">{user.email}</DropdownItem>
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
-        <DropdownItem className="change-password-title" onClick={handleResetPassword}>Change Password</DropdownItem>
+        <DropdownItem className="change-password-title" onClick={handleResetPassword}><Link href="../../update-password">Change Password</Link></DropdownItem>
         <DropdownItem className="sign-out-title" onClick={handleSignOut}><Link href="../../SignOut">Sign Out</Link></DropdownItem>  
       </div>
     </div>

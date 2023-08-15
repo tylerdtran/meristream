@@ -1,6 +1,6 @@
-import { supabase } from '../../../utils/supabase';
+import { supabase } from '../../utils/supabase';
 import { useState } from 'react';
-import { useUser } from '../../../utils/Context';
+import { useUser } from '../../utils/Context';
 import { CSSTransition } from 'react-transition-group';
 
 const handleResetPassword = async (e: any) => {
