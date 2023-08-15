@@ -284,6 +284,8 @@ function DropdownMenu() {
       }
   });
 
+  console.log('test')
+
   const handleSignOut = () => {
 
 
