@@ -97,7 +97,7 @@ function DropdownMenu() {
 
   console.log('test')
 
-  const handleSignOut = () => {
+  const useSignOut = () => {
 
 
       useEffect(() => {
@@ -111,7 +111,7 @@ function DropdownMenu() {
         <DropdownItem className="email-title">{user.email}</DropdownItem>
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
         <DropdownItem className="change-password-title"><Link href="../../update-password">Change Password</Link></DropdownItem>
-        <DropdownItem className="sign-out-title" onClick={handleSignOut}><Link href="../../SignOut">Sign Out</Link></DropdownItem>  
+        <DropdownItem className="sign-out-title" onClick={useSignOut}><Link href="../../SignOut">Sign Out</Link></DropdownItem>  
       </div>
     </div>
   );

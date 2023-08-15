@@ -46,22 +46,20 @@ const Pricing = async () => {
     return (
         <div className="w-full max-w-3xl mx-auto py-16 flex justify-around justify-center align-items gap-4 ">
             {plans.map((plan) => (
-                <div>
-                    <div key={plan.id} className="w-80 h-40 rounded shadow px-6 py-4 flex flex-col justify-center align-items
-                    divide-y rounded-lg hover:bg-zinc-200">
-                        {/* <Link href={`/PricingPlans/${plan.id}`}> */}
-                            <div className="flex justify-center items-center flex-col">
-                                <h2>{plan.name}</h2>
-                                <p> 
-                                    ${plan.price! / 100} / {plan.interval}
-                                </p>
-                            </div>
-                            <button className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white border-4 rounded-md hover:bg-zinc-900">
-                                <Link href={`/PricingPlans/${plan.id}`}>Subscribe</Link>
-                                {/* Take user to respective pricing checkout portal */}
-                            </button>
-                        {/* </Link> */}
-                    </div>
+                <div key={plan.id} className="w-80 h-40 rounded shadow px-6 py-4 flex flex-col justify-center align-items
+                divide-y rounded-lg hover:bg-zinc-200">
+                    {/* <Link href={`/PricingPlans/${plan.id}`}> */}
+                        <div className="flex justify-center items-center flex-col">
+                            <h2>{plan.name}</h2>
+                            <p> 
+                                ${plan.price! / 100} / {plan.interval}
+                            </p>
+                        </div>
+                        <button className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white border-4 rounded-md hover:bg-zinc-900">
+                            <Link href={`/PricingPlans/${plan.id}`}>Subscribe</Link>
+                            {/* Take user to respective pricing checkout portal */}
+                        </button>
+                    {/* </Link> */}
                 </div>
             ))}
         </div>
@@ -75,7 +73,7 @@ const Pricing = async () => {
         return <p>Error fetching data. Please try again later.</p>;
     }
 }
-export { Pricing };
+// export { Pricing };
 
 export default function PricingPlans() {
     return (
