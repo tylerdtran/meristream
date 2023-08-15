@@ -78,7 +78,7 @@ const SignIn = () => {
                 </div>
 
                 <div className="error-message text-red-100">{errorMessage}</div>
-                {/* <div onClick={handleResetPassword}>Reset Password</div> */}
+                <div className="reset-pass-button"><Link href="/forgot-password">Reset Password</Link></div>
               </div>
               <div className="signin-button">
                 <button className="continue-button" type="submit">Continue</button>
