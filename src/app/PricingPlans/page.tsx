@@ -2,12 +2,27 @@
 import React from 'react';
 import Link from 'next/link';
 import Stripe from 'stripe';
+import { useUser } from '@/utils/Context';
+import { loadStripe } from '@stripe/stripe-js'
 
 export const revalidate = 0;
 
 const Pricing = async () => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2022-11-15' });
     const { data: prices } = await stripe.prices.list();
+
+    const { user } = useUser();
+    // const processSubscription = async (planId: string) => {
+    //     const data = await fetch(`http://localhost:3000/api/subscription/${planId}`)
+    //     console.log(data)   
+    //     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+    //     await stripe?.redirectToCheckout({
+    //         sessionId: data.id
+    //     });
+    // }    
+
+    const showSubscribeButton = !!user && !user.is_subscribed;
+    const showManageSubscriptionButton = !!user && user.is_subscribed; 
 
     try {
         const plans = await Promise.all(

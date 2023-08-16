@@ -41,7 +41,13 @@ const Provider = ( { children }: { children: ReactNode }) => {
         
     }, [])  
 
-    // const login 
+    
+    // useEffect(() => {
+    //   const promise = await fetch('http://localhost:3000/api/set-supabase-cookie', {
+    //     event: user ? 'SIGNED_IN' : 'SIGNED_OUT',
+    //     session: supabase.auth.getSession(),
+    //   })
+    // }, [user]);
 
     const login = async (email: string, password: string) => {
       
