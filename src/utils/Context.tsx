@@ -2,8 +2,9 @@
 // // Thus it can be used to regulate the user's access to certain pages, see if they are subscribed or not etc. 
 'use client'
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import { supabase } from './supabase';
+// import { supabase } from './supabase';
 import { useRouter } from 'next/navigation';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 
 type CurrentUserContextType = {
@@ -16,6 +17,7 @@ type CurrentUserContextType = {
 export const Context = createContext<CurrentUserContextType>(null!);
 
 const Provider = ( { children }: { children: ReactNode }) => {
+    const supabase = createClientComponentClient();
     const router = useRouter();
     // initializing our user state to the authorized user. 
     const [user, setUser] = useState<ReturnType<typeof supabase.auth.getUser> | null>(supabase.auth.getUser());
