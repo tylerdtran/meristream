@@ -2,22 +2,26 @@
 // // Thus it can be used to regulate the user's access to certain pages, see if they are subscribed or not etc. 
 'use client'
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
-import { supabase } from './supabase';
+// import { supabase } from './supabase';
 import { useRouter } from 'next/navigation';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 
 type CurrentUserContextType = {
     user: any | null;
     login: ( email: string, password: string) => void;
     logout: () => void;
+    isLoading: boolean;
     };
 
 export const Context = createContext<CurrentUserContextType>(null!);
 
 const Provider = ( { children }: { children: ReactNode }) => {
+    const supabase = createClientComponentClient();
     const router = useRouter();
     // initializing our user state to the authorized user. 
     const [user, setUser] = useState<ReturnType<typeof supabase.auth.getUser> | null>(supabase.auth.getUser());
+    const [isLoading, setIsLoading] = useState(true);
 
     // whenever user refreshes the application 
     // they will get which ever user that is currently set to supabase.auth.getUser()
@@ -43,10 +47,11 @@ const Provider = ( { children }: { children: ReactNode }) => {
 
     
     // useEffect(() => {
-    //   const promise = await fetch('http://localhost:3000/api/set-supabase-cookie', {
+    //   const res = await fetch('http://localhost:3000/api/set-supabase-cookie', {
     //     event: user ? 'SIGNED_IN' : 'SIGNED_OUT',
     //     session: supabase.auth.getSession(),
     //   })
+    //   const data = await res.json()
     // }, [user]);
 
     const login = async (email: string, password: string) => {
@@ -80,7 +85,8 @@ const Provider = ( { children }: { children: ReactNode }) => {
     const exposed = {
         user, 
         login,
-        logout
+        logout, 
+        isLoading
     };
 
     return (

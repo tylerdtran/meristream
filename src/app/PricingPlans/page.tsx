@@ -1,9 +1,11 @@
 
+// 'use client';
 import React from 'react';
 import Link from 'next/link';
 import Stripe from 'stripe';
 import { useUser } from '@/utils/Context';
 import { loadStripe } from '@stripe/stripe-js'
+
 
 export const revalidate = 0;
 
@@ -11,11 +13,13 @@ const Pricing = async () => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2022-11-15' });
     const { data: prices } = await stripe.prices.list();
 
-    const { user } = useUser();
+    const { user, isLoading } = useUser();
+
     // const processSubscription = async (planId: string) => {
-    //     const data = await fetch(`http://localhost:3000/api/subscription/${planId}`)
+    //     const res = await fetch(`http://localhost:3000/api/subscription/${planId}`)
+    //     const data = await res.json()
     //     console.log(data)   
-    //     const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+    //     const stripe = await loadStripe(process.env.NEXT_PUBLIC_KEY!);
     //     await stripe?.redirectToCheckout({
     //         sessionId: data.id
     //     });
@@ -63,7 +67,6 @@ const Pricing = async () => {
             {plans.map((plan) => (
                 <div key={plan.id} className="w-80 h-40 rounded shadow px-6 py-4 flex flex-col justify-center align-items
                 divide-y rounded-lg hover:bg-zinc-200">
-                    {/* <Link href={`/PricingPlans/${plan.id}`}> */}
                         <div className="flex justify-center items-center flex-col">
                             <h2>{plan.name}</h2>
                             <p> 
@@ -72,9 +75,20 @@ const Pricing = async () => {
                         </div>
                         <button className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white border-4 rounded-md hover:bg-zinc-900">
                             <Link href={`/PricingPlans/${plan.id}`}>Subscribe</Link>
-                            {/* Take user to respective pricing checkout portal */}
                         </button>
-                    {/* </Link> */}
+                        {/* {!isLoading && (
+                            <div>
+                            {showSubscribeButton && (
+                                <button onClick={() => processSubscription(plan.id)}>
+                                Subscribe
+                                </button>
+                            )}
+                            {showManageSubscriptionButton && (
+                                <button>Manage Subscription</button>
+                            )}
+                            </div>
+                        )} */}
+
                 </div>
             ))}
         </div>
