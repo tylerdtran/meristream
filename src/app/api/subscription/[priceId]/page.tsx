@@ -1,9 +1,9 @@
 import { supabase } from "@/utils/supabase";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 // import cookie from 'cookie';
 import Stripe from 'stripe'
 
-const handler = async (req: Request, res: Response) => {
+const handler = async (req: NextRequest, res: Response) => {
     // const { user } = await supabase.auth.api.getUserbyCookie(req)
 
     // if(!user) {

@@ -5,11 +5,11 @@ import { useUser } from '../../utils/Context';
 export default function SignOut() {
     const { logout } = useUser();
 
-    useEffect ((() => {
+    useEffect (() => {
 
         logout();
 
-    }), [])
+    })
 
     return (
         <div>
