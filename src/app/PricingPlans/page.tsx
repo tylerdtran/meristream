@@ -16,7 +16,7 @@ const Pricing = async () => {
     const { user, isLoading } = useUser();
 
     // const processSubscription = async (planId: string) => {
-    //     const res = await fetch(`http://localhost:3000/api/subscription/${planId}`)
+    //     const res = await fetch(`{location.origin}/api/subscription/${planId}`)
     //     const data = await res.json()
     //     console.log(data)   
     //     const stripe = await loadStripe(process.env.NEXT_PUBLIC_KEY!);
