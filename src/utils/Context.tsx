@@ -69,7 +69,7 @@ const Provider = ( { children }: { children: ReactNode }) => {
             } else {
               console.log('Login successful');
               console.log(supabase.auth.getUser())
-              router.push('/');
+              router.push('/Home');
             }
           } catch (error) {
             console.log('Error during login:', error);
@@ -78,8 +78,9 @@ const Provider = ( { children }: { children: ReactNode }) => {
 
     const logout = async () => {
         await supabase.auth.signOut()
-        setUser(null)
         router.push('/SignIn')
+        router.refresh()
+        setUser(null)
       };
 
     const exposed = {

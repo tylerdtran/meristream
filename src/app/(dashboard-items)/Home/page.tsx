@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
 // import { supabase } from '../../utils/supabase';
-import { useUser } from '../../utils/Context';
+// import { useUser } from '../../../utils/Context';
 
  export default function HomePage() {
     // const { user} = useUser();

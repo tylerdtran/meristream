@@ -71,9 +71,9 @@ function DropdownMenu() {
 
   function DropdownItem(props: React.HTMLProps<HTMLAnchorElement>) {
     return (
-      <a href="#" className="menu-item">
+      <div className="menu-item">
         {props.children}
-      </a>
+      </div>
     );
   }
 
@@ -97,12 +97,10 @@ function DropdownMenu() {
 
   console.log('test')
 
-  const useSignOut = () => {
-
-
-      useEffect(() => {
-          logout();
-      }, [])
+  const useSignOut = (e: any) => {
+    console.log('clicked')
+    e.preventDefault();
+    logout();
   }
 
   return (
@@ -111,7 +109,8 @@ function DropdownMenu() {
         <DropdownItem className="email-title">{user.email}</DropdownItem>
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
         <DropdownItem className="change-password-title"><Link href="../../update-password">Change Password</Link></DropdownItem>
-        <DropdownItem className="sign-out-title" onClick={useSignOut}><Link href="../../SignOut">Sign Out</Link></DropdownItem>  
+
+        <div onClick={useSignOut}><DropdownItem className="sign-out-title" >Sign Out</DropdownItem> </div>
       </div>
     </div>
   );
