@@ -99,13 +99,13 @@ function DropdownMenu() {
   //     }
   // });
 
-  useEffect (() => {
-    if (user == null) {
-      redirect('/SignUp')
-    }
-  }, [user])
+  // useEffect (() => {
+  //   if (user == null) {
+  //     redirect('/SignUp')
+  //   }
+  // }, [user])
 
-  console.log('test')
+  // console.log('test')
 
   const useSignOut = (e: any) => {
     console.log('clicked')
