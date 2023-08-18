@@ -3,13 +3,17 @@
 import React, { useState, useEffect, useRef }from 'react';
 import { useUser } from '../../../utils/Context';
 // import React, { useState, useRef } from 'react';
+import { redirect } from 'next/navigation';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
 
+
 export default function NavBar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [open, setOpen] = useState(false); 
+
+
 
     const toggleMobileMenu = () => {
       setMobileMenuOpen(!isMobileMenuOpen);
@@ -28,7 +32,7 @@ export default function NavBar() {
             </div>
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
-              <NavBarItem link="../../SignUp" name="Devices" />
+              <NavBarItem link="../../License" name="Devices" />
               <NavBarItem link="../../PricingPlans" name="License" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
@@ -36,7 +40,7 @@ export default function NavBar() {
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-4 ">
-              <NavBarItem link="../../SignUp" name="Devices" />
+              <NavBarItem link="../../License" name="Devices" />
               <NavBarItem link="../../PricingPlans" name="Change Plan" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
@@ -83,17 +87,23 @@ function DropdownMenu() {
 
   let menuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-      let handler = (event: MouseEvent) => {
-          if (menuRef.current?.contains(event.target as Node)) {
-              setOpen(false);
-          }
-      };
-      document.addEventListener("mousedown", handler);
-      return ()=> {
-          document.removeEventListener("mousedown", handler);
-      }
-  });
+  // useEffect(() => {
+  //     let handler = (event: MouseEvent) => {
+  //         if (menuRef.current?.contains(event.target as Node)) {
+  //             setOpen(false);
+  //         }
+  //     };
+  //     document.addEventListener("mousedown", handler);
+  //     return ()=> {
+  //         document.removeEventListener("mousedown", handler);
+  //     }
+  // });
+
+  useEffect (() => {
+    if (user == null) {
+      redirect('/SignUp')
+    }
+  }, [user])
 
   console.log('test')
 

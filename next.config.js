@@ -3,7 +3,11 @@ const nextConfig = {
     reactStrictMode: false, 
     experimental: {
         serverActions: true,
-      }
+    }, 
+    compiler: {
+      // Enables the styled-components SWC transform
+      styledComponents: true
+    }
 }
 
 

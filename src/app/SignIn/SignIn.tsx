@@ -27,7 +27,7 @@ const SignIn = () => {
   //       } else {
   //         console.log('Login successful');
   //         console.log(supabase.auth.getUser())
-  //         router.push('/');
+  //         router.push('/Home');
   //       }
   //     } catch (error) {
   //       console.log('Error during login:', error);
