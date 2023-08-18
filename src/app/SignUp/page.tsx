@@ -13,7 +13,7 @@ export default async function AuthSignUp() {
   } = await supabase.auth.getSession();
 
   if (session) {
-    redirect('/');
+    redirect('/Home');
   }
 
   return (
