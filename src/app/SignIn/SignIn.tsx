@@ -4,7 +4,7 @@ import './SignIn.scss';
 import Link from 'next/link';
 import { supabase } from '../../utils/supabase';
 import { useRouter } from 'next/navigation';
-import { useUser } from '../../utils/Context';
+import { useUser } from '../../utils/supabase-provider';
 
 const SignIn = () => {
   const router = useRouter();

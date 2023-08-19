@@ -1,32 +1,49 @@
 
-// 'use client';
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import Stripe from 'stripe';
-import { useUser } from '@/utils/Context';
-import { loadStripe } from '@stripe/stripe-js'
-
+// import { useUser } from '@/utils/Context';
+// import { loadStripe } from '@stripe/stripe-js'
+// import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+// import { cookies } from 'next/headers'
 
 export const revalidate = 0;
 
 const Pricing = async () => {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2022-11-15' });
     const { data: prices } = await stripe.prices.list();
+    // const supabase = createServerComponentClient({ cookies });
 
-    const { user, isLoading } = useUser();
+    // const user = await supabase.auth.getUser();
+    // infinite stripe request error
 
-    // const processSubscription = async (planId: string) => {
-    //     const res = await fetch(`http://localhost:3000/api/subscription/${planId}`)
-    //     const data = await res.json()
-    //     console.log(data)   
-    //     const stripe = await loadStripe(process.env.NEXT_PUBLIC_KEY!);
-    //     await stripe?.redirectToCheckout({
-    //         sessionId: data.id
-    //     });
-    // }    
 
-    const showSubscribeButton = !!user && !user.is_subscribed;
-    const showManageSubscriptionButton = !!user && user.is_subscribed; 
+    // const { user, isLoading } = useUser();
+
+
+
+    // console.log(user)
+    console.log('no success')
+
+    // const processSubscription = async (planId: string ) => {
+    //     try {
+    //         const response = await fetch(`/api/subscription/${planId}`, { cache: 'no-cache'});
+            
+    //         if (!response.ok) {
+    //           throw new Error('Network response was not ok');
+    //         }
+            
+    //         const data = await response.json();
+    //         console.log(data);
+    //       } catch (error) {
+    //         console.error('Error fetching subscription data:', error);
+    //       }
+    // }
+     
+
+    // const showSubscribeButton = !!user && !user.is_subscribed;
+    // const showManageSubscriptionButton = !!user && user.is_subscribed; 
 
     try {
         const plans = await Promise.all(
@@ -41,6 +58,8 @@ const Pricing = async () => {
                 };
         })
     );
+
+    
 
     // const handleSubscribe = async (priceId: string) => {
     //     const { sessionId } = await fetch('/api/create-checkout-session', {
@@ -113,6 +132,4 @@ export default function PricingPlans() {
 
     );
 }
-
-
 

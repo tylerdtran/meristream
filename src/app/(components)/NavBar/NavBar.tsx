@@ -1,9 +1,10 @@
 
 'use client';
 import React, { useState, useEffect, useRef }from 'react';
-import { useUser } from '../../../utils/Context';
+import { useUser } from '../../../utils/supabase-provider';
 // import React, { useState, useRef } from 'react';
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
+import { useRouter } from 'next/router';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
@@ -87,25 +88,14 @@ function DropdownMenu() {
 
   let menuRef = useRef<HTMLDivElement>(null);
 
-  // useEffect(() => {
-  //     let handler = (event: MouseEvent) => {
-  //         if (menuRef.current?.contains(event.target as Node)) {
-  //             setOpen(false);
-  //         }
-  //     };
-  //     document.addEventListener("mousedown", handler);
-  //     return ()=> {
-  //         document.removeEventListener("mousedown", handler);
-  //     }
-  // });
 
   // useEffect (() => {
   //   if (user == null) {
-  //     redirect('/SignUp')
+  //     router.push('/SignUp')
   //   }
   // }, [user])
 
-  // console.log('test')
+  console.log('test')
 
   const useSignOut = (e: any) => {
     console.log('clicked')
