@@ -4,42 +4,42 @@ import './SignIn.scss';
 import Link from 'next/link';
 import { supabase } from '../../utils/supabase';
 import { useRouter } from 'next/navigation';
-// import { useUser } from '../../utils/supabase-provider';
+import { useUser } from '../../utils/supabase-provider';
 
 const SignIn = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  // const { login } = useUser();
+  const { login } = useUser();
 
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-  
-    try {
-      // Call the authentication method
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-
-        if (error) {
-          setErrorMessage('Incorrect email or password. Please try again.');
-        } else {
-          console.log('Login successful');
-          console.log(supabase.auth.getUser())
-          router.push('/Home');
-        }
-      } catch (error) {
-        console.log('Error during login:', error);
-      }
-  };
-
-
-  // const handleSubmit = (e: any) => {
+  // const handleSubmit = async (e: any) => {
   //   e.preventDefault();
-  //   login(email, password);
-  // }
+  
+  //   try {
+  //     // Call the authentication method
+  //     const { data, error } = await supabase.auth.signInWithPassword({
+  //       email: email,
+  //       password: password,
+  //     });
+
+  //       if (error) {
+  //         setErrorMessage('Incorrect email or password. Please try again.');
+  //       } else {
+  //         console.log('Login successful');
+  //         console.log(supabase.auth.getUser())
+  //         router.push('/Home');
+  //       }
+  //     } catch (error) {
+  //       console.log('Error during login:', error);
+  //     }
+  // };
+
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    login(email, password);
+  }
 
   
 

@@ -9,7 +9,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 type CurrentUserContextType = {
     user: any | null;
-    // login: ( email: string, password: string) => void;
+    login: ( email: string, password: string) => void;
     logout: () => void;
     isLoading: boolean;
     };
@@ -106,7 +106,7 @@ const Provider = ( { children }: { children: ReactNode }) => {
 
     const exposed = {
         user, 
-        // login,
+        login,
         logout, 
         isLoading
     };
