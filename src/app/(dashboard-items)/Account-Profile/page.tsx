@@ -22,7 +22,7 @@ export default async function Account() {
   const user = session?.user;
 
   if (!session) {
-    return redirect('/signin');
+    return redirect('/SignIn');
   }
 
   const subscriptionPrice =
@@ -47,7 +47,7 @@ export default async function Account() {
     if (error) {
       console.log(error);
     }
-    revalidatePath('/account');
+    revalidatePath('/Account-Profile');
   };
 
   const updateEmail = async (formData: FormData) => {
@@ -59,7 +59,7 @@ export default async function Account() {
     if (error) {
       console.log(error);
     }
-    revalidatePath('/account');
+    revalidatePath('/Account-Profile');
   };
 
   return (

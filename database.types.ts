@@ -207,6 +207,7 @@ export interface Database {
       }
       user_profiles: {
         Row: {
+          "billing address": Json | null
           company_name: string | null
           created_at: string | null
           email: string | null
@@ -215,10 +216,11 @@ export interface Database {
           id: string
           is_subscribed: boolean | null
           last_name: string | null
-          plan_type: string | null
+          payment_method: Json | null
           stripe_customer_id: string | null
         }
         Insert: {
+          "billing address"?: Json | null
           company_name?: string | null
           created_at?: string | null
           email?: string | null
@@ -227,10 +229,11 @@ export interface Database {
           id: string
           is_subscribed?: boolean | null
           last_name?: string | null
-          plan_type?: string | null
+          payment_method?: Json | null
           stripe_customer_id?: string | null
         }
         Update: {
+          "billing address"?: Json | null
           company_name?: string | null
           created_at?: string | null
           email?: string | null
@@ -239,7 +242,7 @@ export interface Database {
           id?: string
           is_subscribed?: boolean | null
           last_name?: string | null
-          plan_type?: string | null
+          payment_method?: Json | null
           stripe_customer_id?: string | null
         }
         Relationships: [

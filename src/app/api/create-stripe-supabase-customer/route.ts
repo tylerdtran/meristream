@@ -24,6 +24,9 @@ export async function POST(request: Request) {
         const customer = await stripe.customers.create({
             email: requestData.record.email,
         });
+
+        console.log(customer.id)
+        console.log(requestData.record.id)
         
         const { error } = await supabase
         .from("user_profiles")
@@ -31,10 +34,17 @@ export async function POST(request: Request) {
             stripe_customer_id: customer.id,
         })
         .eq("id", requestData.record.id);
-        if (!error) {
+        if (error ) {
+            console.log('failure')
+            console.log(error)
+        }
+
+        else if (!error) {
             console.log('success')
         }
-        console.log(error)
+        // console.log(error)
+
+        console.log(customer.id)
 
         return NextResponse.json({ message: `stripe customer created: ${customer.id}` });
     } catch (error) {

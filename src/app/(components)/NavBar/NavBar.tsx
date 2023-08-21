@@ -106,7 +106,7 @@ function DropdownMenu() {
   return (
     <div className="dropdown">
       <div className="menu">
-        <DropdownItem className="email-title">{user.email}</DropdownItem>
+        {/* <DropdownItem className="email-title">{user.email}</DropdownItem> */}
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
         <DropdownItem className="change-password-title"><Link href="../../update-password">Change Password</Link></DropdownItem>
 
