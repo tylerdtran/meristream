@@ -1,15 +1,20 @@
 
 'use client';
 import React, { useState, useEffect, useRef }from 'react';
-import { useUser } from '../../../utils/Context';
+import { useUser } from '../../../utils/supabase-provider';
 // import React, { useState, useRef } from 'react';
+// import { redirect } from 'next/navigation';
+// import { useRouter } from 'next/router';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
 
+
 export default function NavBar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [open, setOpen] = useState(false); 
+
+
 
     const toggleMobileMenu = () => {
       setMobileMenuOpen(!isMobileMenuOpen);
@@ -28,16 +33,16 @@ export default function NavBar() {
             </div>
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
-              <NavBarItem link="../../SignUp" name="Devices" />
-              <NavBarItem link="../../PricingPlans" name="License" />
+              <NavBarItem link="../../Account-Profile" name="Devices" />
+              <NavBarItem link="../../Pricing" name="License" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
               </NavBarItem>
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-4 ">
-              <NavBarItem link="../../SignUp" name="Devices" />
-              <NavBarItem link="../../PricingPlans" name="Change Plan" />
+              <NavBarItem link="../../Account-Profile" name="Account-Profile" />
+              <NavBarItem link="../../Pricing" name="Pricing Plans" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
               </NavBarItem>
@@ -83,17 +88,12 @@ function DropdownMenu() {
 
   let menuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-      let handler = (event: MouseEvent) => {
-          if (menuRef.current?.contains(event.target as Node)) {
-              setOpen(false);
-          }
-      };
-      document.addEventListener("mousedown", handler);
-      return ()=> {
-          document.removeEventListener("mousedown", handler);
-      }
-  });
+
+  // useEffect (() => {
+  //   if (user == null) {
+  //     router.push('/SignUp')
+  //   }
+  // }, [user])
 
   console.log('test')
 
@@ -106,7 +106,7 @@ function DropdownMenu() {
   return (
     <div className="dropdown">
       <div className="menu">
-        <DropdownItem className="email-title">{user.email}</DropdownItem>
+        {/* <DropdownItem className="email-title">{user.email}</DropdownItem> */}
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
         <DropdownItem className="change-password-title"><Link href="../../update-password">Change Password</Link></DropdownItem>
 

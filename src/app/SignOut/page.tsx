@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react';
-import { useUser } from '../../utils/Context';
+import { useUser } from '../../utils/supabase-provider';
 
 export default function SignOut() {
     const { logout } = useUser();

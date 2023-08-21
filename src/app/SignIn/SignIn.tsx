@@ -4,7 +4,7 @@ import './SignIn.scss';
 import Link from 'next/link';
 import { supabase } from '../../utils/supabase';
 import { useRouter } from 'next/navigation';
-import { useUser } from '../../utils/Context';
+import { useUser } from '../../utils/supabase-provider';
 
 const SignIn = () => {
   const router = useRouter();
@@ -12,7 +12,8 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const { login } = useUser();
-  // const login = async (e: any) => {
+
+  // const handleSubmit = async (e: any) => {
   //   e.preventDefault();
   
   //   try {
@@ -27,12 +28,14 @@ const SignIn = () => {
   //       } else {
   //         console.log('Login successful');
   //         console.log(supabase.auth.getUser())
-  //         router.push('/');
+  //         router.push('/Home');
   //       }
   //     } catch (error) {
   //       console.log('Error during login:', error);
   //     }
   // };
+
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     login(email, password);

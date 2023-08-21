@@ -39,6 +39,7 @@ const SignUp: React.FC = () => {
         email: email,
         password: password,
         options: {
+          emailRedirectTo: "https://localhost:3000/auth/callback",
           data: {
             first_name: firstName,
             last_name: lastName,

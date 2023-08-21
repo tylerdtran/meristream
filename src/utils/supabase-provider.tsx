@@ -54,6 +54,27 @@ const Provider = ( { children }: { children: ReactNode }) => {
     //   const data = await res.json()
     // }, [user]);
 
+    // if the state of our user changes, which UseEffect will account for, we call this endpoint here ('/api/set-supabase-cookie') if the user has changed
+    // useEffect(() => {
+    //   axios.post("/api/set-supabase-cookie", {
+    //     event: user ? "SIGNED_IN" : "SIGNED_OUT",
+    //     session: supabase.auth.getSession(),
+    //   });
+    // }, [user]);
+
+    // essentially trying to account for the user if 
+
+    // useEffect((() => {
+    //   supabase.auth.onAuthStateChange((event, session) => {
+    //     if (user) {
+    //       event = 'SIGNED_IN';
+    //     }
+    //     else if (!user) {
+    //       event = 'SIGNED_OUT';
+    //     }
+    //   })
+    // }), [user]);
+
     const login = async (email: string, password: string) => {
       
         try {
