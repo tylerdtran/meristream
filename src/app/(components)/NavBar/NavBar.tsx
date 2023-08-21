@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef }from 'react';
 import { useUser } from '../../../utils/supabase-provider';
 // import React, { useState, useRef } from 'react';
 // import { redirect } from 'next/navigation';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
@@ -33,16 +33,16 @@ export default function NavBar() {
             </div>
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
-              <NavBarItem link="../../License" name="Devices" />
-              <NavBarItem link="../../PricingPlans" name="License" />
+              <NavBarItem link="../../Account-Profile" name="Devices" />
+              <NavBarItem link="../../Pricing" name="License" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
               </NavBarItem>
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-4 ">
-              <NavBarItem link="../../License" name="Devices" />
-              <NavBarItem link="../../PricingPlans" name="Change Plan" />
+              <NavBarItem link="../../Account-Profile" name="Account-Profile" />
+              <NavBarItem link="../../Pricing" name="Pricing Plans" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
               </NavBarItem>

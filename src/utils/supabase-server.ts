@@ -34,7 +34,6 @@ export async function getUserDetails() {
   }
 }
 
-// not sure how this one applies 
 export async function getSubscription() {
   const supabase = createServerSupabaseClient();
   try {
@@ -51,7 +50,6 @@ export async function getSubscription() {
   }
 }
 
-// not sure how this one applies 
 export const getActiveProductsWithPrices = async () => {
   const supabase = createServerSupabaseClient();
   const { data, error } = await supabase

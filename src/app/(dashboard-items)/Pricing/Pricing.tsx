@@ -3,47 +3,59 @@
 import React from 'react';
 import Link from 'next/link';
 import Stripe from 'stripe';
-// import { useUser } from '@/utils/Context';
-// import { loadStripe } from '@stripe/stripe-js'
-// import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
-// import { cookies } from 'next/headers'
+import { useState } from 'react';
+import { getStripe } from '@/utils/stripe-client'
+import { Database } from '../../../../database.types';
+import { Session, User } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
+import { postData } from '@/utils/helpers';
+
+type Subscription = Database['public']['Tables']['subscriptions']['Row'];
+type Product = Database['public']['Tables']['products']['Row'];
+type Price = Database['public']['Tables']['prices']['Row'];
+interface ProductWithPrices extends Product {
+  prices: Price[];
+}
+interface PriceWithProduct extends Price {
+  products: Product | null;
+}
+interface SubscriptionWithProduct extends Subscription {
+  prices: PriceWithProduct | null;
+}
+
+interface Props {
+  session: Session | null;
+  user: User | null | undefined;
+  products: ProductWithPrices[];
+  subscription: SubscriptionWithProduct | null;
+}
 
 export const revalidate = 0;
 
-const Pricing = async () => {
+type BillingInterval = 'lifetime' | 'year' | 'month';
+
+export default async function Pricing({
+    session,
+    user,
+    products,
+    subscription
+  }: Props) {
+    
+    const router = useRouter();
+    const [billingInternval, setBillingInterval] = useState<BillingInterval>('month');
+    const [pricceIdLoading, setPriceIdLoading] = useState<string>();
+
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2022-11-15' });
     const { data: prices } = await stripe.prices.list();
-    // const supabase = createServerComponentClient({ cookies });
-
+    // const supabase = createServerComponentClient({ cookies })
     // const user = await supabase.auth.getUser();
     // infinite stripe request error
-
-
     // const { user, isLoading } = useUser();
 
 
 
     // console.log(user)
     console.log('no success')
-
-    // const processSubscription = async (planId: string ) => {
-    //     try {
-    //         const response = await fetch(`/api/subscription/${planId}`, { cache: 'no-cache'});
-            
-    //         if (!response.ok) {
-    //           throw new Error('Network response was not ok');
-    //         }
-            
-    //         const data = await response.json();
-    //         console.log(data);
-    //       } catch (error) {
-    //         console.error('Error fetching subscription data:', error);
-    //       }
-    // }
-     
-
-    // const showSubscribeButton = !!user && !user.is_subscribed;
-    // const showManageSubscriptionButton = !!user && user.is_subscribed; 
 
     try {
         const plans = await Promise.all(
@@ -59,27 +71,62 @@ const Pricing = async () => {
         })
     );
 
-    
+    const handleCheckout = async (price: Price) => {
+        setPriceIdLoading(price.id);
 
-    // const handleSubscribe = async (priceId: string) => {
-    //     const { sessionId } = await fetch('/api/create-checkout-session', {
-    //         body: JSON.stringify({ priceId }),
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         method: 'POST',
-    //     }).then((res) => res.json());
+        if(!user) {
+            return router.push('/SignIn');
+        }
+        if (subscription) {
+            return router.push('/Account-Profile');
+        }
+        const handleCheckout = async (price: Price) => {
+            setPriceIdLoading(price.id);
+            if (!user) {
+              return router.push('/SignIn');
+            }
+            if (subscription) {
+              return router.push('/Account-Profile');
+            }
+            try {
+              const { sessionId } = await postData({
+                url: '/api/create-checkout-session',
+                data: { price }
+              });
+        
+              const stripe = await getStripe();
+              stripe?.redirectToCheckout({ sessionId });
+            } catch (error) {
+              return alert((error as Error)?.message);
+            } finally {
+              setPriceIdLoading(undefined);
+            }
+          };
 
-    //     // const { error } = await stripe.redirectToCheckout({
-    //     //     sessionId: sessionId,
-    //     // });
+    }
 
-    //     // if (error) {
-    //     //     console.error(error);
-    //     // }
-    //     // Find a way to redirect to stripe checkout
-    //     // redirect to stripe checkout 
-    // }
+
+    // if there are zero products present 
+    if (!products.length)
+    return (
+      <section className="bg-black">
+        <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
+          <div className="sm:flex sm:flex-col sm:align-center"></div>
+          <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+            No subscription pricing plans found. Create them in your{' '}
+            <a
+              className="text-pink-500 underline"
+              href="https://dashboard.stripe.com/products"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Stripe Dashboard
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+    );
 
     return (
         <div className="w-full max-w-3xl mx-auto py-16 flex justify-around justify-center align-items gap-4 ">
@@ -123,13 +170,23 @@ const Pricing = async () => {
 }
 // export { Pricing };
 
-export default function PricingPlans() {
-    return (
-        <div className="h-screen">
-            <h1 className="flex justify-center align-items">Pricing Plans</h1>
-            <Pricing />
-        </div>
 
-    );
-}
+    // const handleSubscribe = async (priceId: string) => {
+    //     const { sessionId } = await fetch('/api/create-checkout-session', {
+    //         body: JSON.stringify({ priceId }),
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         method: 'POST',
+    //     }).then((res) => res.json());
 
+    //     // const { error } = await stripe.redirectToCheckout({
+    //     //     sessionId: sessionId,
+    //     // });
+
+    //     // if (error) {
+    //     //     console.error(error);
+    //     // }
+    //     // Find a way to redirect to stripe checkout
+    //     // redirect to stripe checkout 
+    // }

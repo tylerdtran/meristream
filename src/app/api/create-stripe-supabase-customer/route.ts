@@ -1,7 +1,7 @@
 /*This API Handles the creation of a stripe customer */
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { supabase } from '../../utils/supabase';
+import { supabase } from '../../../utils/supabase';
 
 // const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY!)
 
@@ -13,9 +13,7 @@ export async function POST(request: Request) {
     if (param !== process.env.API_ROUTE_SECRET) {
         return NextResponse.json('Unauthorized', {status: 500});
     }
-    // if(!req.query || req.query.API_ROUTE_SECRET !== process.env.API_ROUTE_SECRET) {
-    //     return res.status(401).send('Unauthorized');
-    // }
+
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, 
         { apiVersion: '2022-11-15' })
 

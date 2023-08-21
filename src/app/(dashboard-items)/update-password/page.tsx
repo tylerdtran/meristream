@@ -1,10 +1,10 @@
 "use client"
 import { supabase } from "@/utils/supabase";
 import { useState } from 'react';  // Removed unnecessary import
-import { useUser } from "@/utils/supabase-provider";
+// import { useUser } from "@/utils/supabase-provider";
 
 export default function UpdatePassword() {
-    const { user } = useUser();
+    // const { user } = useUser();
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");  // Added state to handle errors

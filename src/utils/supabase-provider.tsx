@@ -9,7 +9,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 type CurrentUserContextType = {
     user: any | null;
-    login: ( email: string, password: string) => void;
+    // login: ( email: string, password: string) => void;
     logout: () => void;
     isLoading: boolean;
     };
@@ -63,16 +63,17 @@ const Provider = ( { children }: { children: ReactNode }) => {
     // }, [user]);
 
     // essentially trying to account for the user if 
-    useEffect((() => {
-      supabase.auth.onAuthStateChange((event, session) => {
-        if (user) {
-          event = 'SIGNED_IN';
-        }
-        else if (!user) {
-          event = 'SIGNED_OUT';
-        }
-      })
-    }), [user]);
+
+    // useEffect((() => {
+    //   supabase.auth.onAuthStateChange((event, session) => {
+    //     if (user) {
+    //       event = 'SIGNED_IN';
+    //     }
+    //     else if (!user) {
+    //       event = 'SIGNED_OUT';
+    //     }
+    //   })
+    // }), [user]);
 
     const login = async (email: string, password: string) => {
       
@@ -105,7 +106,7 @@ const Provider = ( { children }: { children: ReactNode }) => {
 
     const exposed = {
         user, 
-        login,
+        // login,
         logout, 
         isLoading
     };
