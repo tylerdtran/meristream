@@ -45,8 +45,8 @@ export async function POST(req: Request) {
             trial_from_plan: true,
             metadata
           },
-          success_url: `${getURL()}/account`,
-          cancel_url: `${getURL()}/`
+          success_url: `${getURL()}/Accountt-Profile`,
+          cancel_url: `${getURL()}/payment`
         });
       } else if (price.type === 'one_time') {
         session = await stripe.checkout.sessions.create({
