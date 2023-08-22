@@ -43,7 +43,7 @@ const Provider = ( { children }: { children: ReactNode }) => {
         getUserProfile();
     })
         
-    }, [])  
+    })  
 
     
     // useEffect(() => {
