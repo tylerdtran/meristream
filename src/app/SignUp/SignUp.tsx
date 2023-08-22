@@ -9,7 +9,7 @@ import { supabase } from '../../utils/supabase';
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/navigation';
 
-const SignUp: React.FC = () => {
+export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -150,6 +150,6 @@ const SignUp: React.FC = () => {
   );
 }
 
-export default SignUp;
+// export default SignUp;
 
 

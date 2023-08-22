@@ -2,9 +2,11 @@
 import { useState } from 'react';
 import './SignIn.scss';
 import Link from 'next/link';
-import { supabase } from '../../utils/supabase';
+// import { supabase } from '../../utils/supabase';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation';
 // import { useUser } from '../../utils/supabase-provider';
+import type { Database } from '../../../database.types';
 
 const SignIn = () => {
   const router = useRouter();
@@ -12,6 +14,8 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   // const { login } = useUser();
+  const supabase = createClientComponentClient<Database>()
+
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
