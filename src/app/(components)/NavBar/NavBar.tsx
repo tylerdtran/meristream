@@ -1,7 +1,7 @@
 
 'use client';
 import React, { useState, useEffect, useRef }from 'react';
-import { useUser } from '../../../utils/supabase-provider';
+// import { useUser } from '../../../utils/supabase-provider';
 // import React, { useState, useRef } from 'react';
 // import { redirect } from 'next/navigation';
 // import { useRouter } from 'next/router';
@@ -82,7 +82,7 @@ function DropdownMenu() {
     );
   }
 
-  const { user, logout} = useUser(); 
+  // const { user, logout} = useUser(); 
   const [open, setOpen] = useState(false);
   
 
@@ -95,13 +95,13 @@ function DropdownMenu() {
   //   }
   // }, [user])
 
-  console.log('test')
+  // console.log('test')
 
-  const useSignOut = (e: any) => {
-    console.log('clicked')
-    e.preventDefault();
-    logout();
-  }
+  // const useSignOut = (e: any) => {
+  //   console.log('clicked')
+  //   e.preventDefault();
+  //   logout();
+  // }
 
   return (
     <div className="dropdown">
@@ -110,7 +110,9 @@ function DropdownMenu() {
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
         <DropdownItem className="change-password-title"><Link href="../../update-password">Change Password</Link></DropdownItem>
 
-        <div onClick={useSignOut}><DropdownItem className="sign-out-title" >Sign Out</DropdownItem> </div>
+        {/* <div onClick={useSignOut}> */}
+          <DropdownItem className="sign-out-title"><Link href="../../SignOut">Sign Out</Link></DropdownItem> 
+          {/* </div> */}
       </div>
     </div>
   );
