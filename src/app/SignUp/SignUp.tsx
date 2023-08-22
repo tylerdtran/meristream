@@ -54,12 +54,14 @@ const SignUp: React.FC = () => {
     }
 
     console.log("User registered successfully:", data.user);
+
+    router.push('/SignIn')
     
-    router.push('/Home')
     } catch (error) {
       console.log(error)
     }
   }
+  
 
   const {
     register,
