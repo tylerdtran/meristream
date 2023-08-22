@@ -41,7 +41,7 @@ export default async function Account() {
     const session = await getSession();
     const user = session?.user;
     const { error } = await supabase
-      .from('users')
+      .from('user_profiles')
       .update({ full_name: newName })
       .eq('id', user?.id);
     if (error) {

@@ -28,12 +28,27 @@ export async function POST(request: Request) {
         console.log(customer.id)
         console.log(requestData.record.id)
         
+        // update user_profiles stripe customer id
         const { error } = await supabase
         .from("user_profiles")
         .update({
             stripe_customer_id: customer.id,
         })
         .eq("id", requestData.record.id);
+        
+        // update customers stripe customer id
+        try {
+            const { error } = await supabase
+            .from("customers")
+            .update({
+                stripe_customer_id: customer.id,
+            })
+            .eq("id", requestData.record.id);
+        } catch (error) {
+            console.log('supabase error')
+            console.log(error)
+        }
+
         if (error ) {
             console.log('failure')
             console.log(error)
