@@ -142,6 +142,7 @@ export default async function Account() {
             </div>
           }
         >
+          
           <div className="mt-8 mb-4 text-xl font-semibold">
             <form id="emailForm" action={updateEmail}>
               <input
@@ -154,6 +155,26 @@ export default async function Account() {
               />
             </form>
           </div>
+        </Card>
+        <Card
+          title="Update Your Password"
+          description="Please click the button below to reset your password."
+          footer={
+            <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
+              <p className="pb-4 sm:pb-0">
+                We will email you to send you to the password reset page.
+              </p>
+              <button
+                type="submit"
+                form="emailForm"
+                disabled={true}
+              >
+                {/* WARNING - In Next.js 13.4.x server actions are in alpha and should not be used in production code! */}
+                Update Password
+              </button>
+            </div>
+          }
+        >
         </Card>
       </div>
     </section>
@@ -171,7 +192,7 @@ function Card({ title, description, footer, children }: Props) {
   return (
     <div className="w-full max-w-3xl m-auto my-8 border rounded-md p border-zinc-700">
       <div className="px-5 py-4">
-        <h3 className="mb-1 text-2xl font-medium">{title}</h3>
+        <h3 className="mb-1 text-2xl font-medium text-white">{title}</h3>
         <p className="text-zinc-300">{description}</p>
         {children}
       </div>

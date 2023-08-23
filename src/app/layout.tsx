@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google'
 // import NavBar from '@/app/(components)/NavBar/NavBar'
 // import Footer from '@/app/(components)/Footer/Footer'
 // import { NavBar, Footer } from '@/app/(components)/exports'
-import UserProvider from '../utils/supabase-provider';
+// import UserProvider from '../utils/supabase-provider';
+import SupabaseProvider from '../utils/supabase-provider'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,11 +25,11 @@ export default function RootLayout({
 
       <html lang="en">
         <body className={inter.className}>
-          <UserProvider>
+          <SupabaseProvider>
             {/* <NavBar /> */}
               {children}
             {/* <Footer /> */}
-          </UserProvider>
+          </SupabaseProvider>
         </body>
       </html>
  
