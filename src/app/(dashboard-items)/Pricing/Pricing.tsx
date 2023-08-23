@@ -95,10 +95,10 @@ export default function Pricing({
 
   if (products.length === 1)
     return (
-      <section className="bg-black">
+      <section className="bg-transparent">
         <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
           <div className="sm:flex sm:flex-col sm:align-center">
-            <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+            <h1 className="text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
               Pricing Plans
             </h1>
             <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
@@ -161,13 +161,13 @@ export default function Pricing({
     );
 
   return (
-    <section className="bg-black">
+    <section className="bg-transparent">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+          <h1 className="text-4xl font-extrabold text-black sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
-          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
+          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-900 sm:text-center sm:text-2xl">
             Start building for free, then add a site plan to go live. Account
             plans unlock additional features.
           </p>
@@ -200,7 +200,8 @@ export default function Pricing({
             )}
           </div>
         </div>
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+        {/* <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3"> */}
+        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-1 w-30 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {products.map((product) => {
             const price = product?.prices?.find(
               (price) => price.interval === billingInterval
@@ -229,7 +230,7 @@ export default function Pricing({
                   </h2>
                   <p className="mt-4 text-zinc-300">{product.description}</p>
                   <p className="mt-8">
-                    <span className="text-5xl font-extrabold white">
+                    <span className="text-5xl text-white font-extrabold white">
                       {priceString}
                     </span>
                     <span className="text-base font-medium text-zinc-100">
