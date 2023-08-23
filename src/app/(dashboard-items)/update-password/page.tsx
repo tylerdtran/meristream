@@ -2,6 +2,7 @@
 // import { supabase } from "@/utils/supabase";
 import { useState } from 'react';  // Removed unnecessary import
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import './UpdatePassword.scss';
 
 import type { Database } from '../../../../database.types';
 
@@ -36,17 +37,47 @@ export default function UpdatePassword() {
     }
 
     return (
-        <div className="w-screen h-screen">
-            <h1>Update Password</h1>
-            <form onSubmit={updatePassword}>
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                {success && <p style={{ color: 'green' }}>Password updated successfully!</p>}
-                <button type="submit">Update Password</button>
-            </form>
+        <div className="signin-container h-screen w-screen flex justify-center items-center">
+            <div className="signin-content">
+                <div className="signin-fields">
+                    <div className='signin-header-container'>      
+                        <div className='signin-header'>
+                            <h1>Update Password</h1>
+                        </div>
+                    </div>
+                    <form onSubmit={updatePassword}>
+                        <div className='email-passwd'>
+                            <div className="email-field general-field">
+                                <label htmlFor="password">Password</label>
+                                <input 
+                                    className="field-input text-black"
+                                    type="password" 
+                                    name="password" 
+                                    id="password" 
+                                    value={password} 
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </div>
+                            <div className='password-field general-field'>
+                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                <input 
+                                    className="field-input text-black"
+                                    type="password" 
+                                    name="confirmPassword" 
+                                    id="confirmPassword" 
+                                    value={confirmPassword} 
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    />
+                            </div>
+                            {error && <p style={{ color: 'red' }}>{error}</p>}
+                            {success && <p style={{ color: 'green' }}>Password updated successfully!</p>}
+                        </div>
+                        <div className="signin-button">
+                            <button type="submit" className="continue-button">Update Password</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
