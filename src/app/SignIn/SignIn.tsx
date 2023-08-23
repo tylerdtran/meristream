@@ -49,13 +49,14 @@ const SignIn = () => {
 
 
   return (
-    <div className="h-screen signin-container flex justify-center items-center">
-      <div className="signin-content ">
+    <div className="signin-container h-screen w-screen flex justify-center items-center">
+      <div className="signin-content">
         <div className="signin-fields">
           <div className='signin-header-container'>      
             <div className='signin-header'>
               <h2 className="signin-title">Sign In</h2>
-              <div className='signin-account'><Link href="../SignUp">Need to create an account? Click Here</Link></div>
+              <div className='signin-account hover:underline-offset-1'>
+                <Link href="../SignUp">Need to create an account?</Link></div>
             </div>
           </div>
           <div>

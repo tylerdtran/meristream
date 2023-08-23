@@ -7,10 +7,6 @@
   padding: 0.75em;
   border-radius: 0.5em;
 }
-// .signuppage {
-//   // display: flex;
-//   // align-items: center;
-// }
 
 .field-input {
     display: flex;
@@ -18,9 +14,21 @@
     width: 100%;
     padding: 0.5em;
 }
+@media (max-width: 768px) {
+  .signuppage {
+    height: 100vh;
+  }
+
+  .field {
+    padding: 0.45em;
+  }
+
+}
+
 .signuppage-header, .payment-header{
   @include button-header-behavior;
 }
+
 .signuppage {
   background: rgba(0, 0, 0, 0.65);
   font-family: 'Mulish', sans-serif;
@@ -30,6 +38,10 @@
 .signup-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 40rem;
+  // width: 100%;
+  padding: 1em 0em 1em 0em;
  
   .signuppage-content {
     display: flex;
@@ -46,6 +58,7 @@
         display: flex;
         flex-direction: row;
         padding: 0.5em;
+        
         @media (max-width: 768px) {
           display: flex;
           flex-direction: column;
@@ -54,8 +67,12 @@
       }
       .continue-button {
         @include button-header-behavior;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
         .signup-button {
           @include button-behavior;
+          width: 30%;
         }
       }
     }
@@ -101,14 +118,20 @@
     }
 }
 .field {
-  padding: 1em;
+  // padding: 1em;
   border-radius: 0.5em;
 }
+@media (min-width: 768px) {
+  .field {
+    padding: 1em;
+  }
+}
+
 .field-title {
   color: rgba(255, 255, 255, 1);
 }
 .container-title {
-  font-size: 1.5625em;
+  font-size: 2em;
 }
 .choose-plan-body {
   font-size: 1.75em;
@@ -116,4 +139,19 @@
 }
 .click-login:hover  {
   text-decoration: underline;;
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    height: 50em;
+  }
+  .signup-container .signup-form {
+    width: 100%;
+  }
+}
+
+@media(max-width: 430px) {
+  .signuppage {
+    height: 100%;
+  }
 }

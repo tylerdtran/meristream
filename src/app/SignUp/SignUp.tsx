@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import './SignUp.scss';
 import Link from 'next/link';
-import { supabase } from '../../utils/supabase';
+// import { supabase } from '../../utils/supabase';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
+import type { Database } from '../../../database.types';
 
 import { useForm } from "react-hook-form";
 import { useRouter } from 'next/navigation';
@@ -16,6 +18,7 @@ export default function SignUp() {
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const router = useRouter()
+  const supabase = createClientComponentClient<Database>()  
 
   const Register = async (e: any) => { 
     e.preventDefault();
@@ -81,17 +84,17 @@ export default function SignUp() {
   };
 
   return (
-    <div className='signuppage h-screen'>
-      <div className="signup-container">
+    <div className='signuppage h-screen w-screen'>
+      <div className="signup-container w-full">
         <form className="signup-form" onSubmit={Register}>
         <div className="signuppage-header">
           <div className='signuppage-content'>
             <div>
               <h1 className="container-title field-title">Sign Up</h1>
             </div>
-            <div>Already have an account? 
+            <div className="hover:text-white uppercase text-center">Already have an account? 
               <br /> 
-            <Link className="click-login" href="../SignIn">Click here to log in</Link>
+            <Link className="click-login" href="../SignIn"><div className="underline-offset-1">Click here to log in</div></Link>
             </div>
           </div>
         </div>

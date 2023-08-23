@@ -2,6 +2,7 @@
 import { Session } from '@supabase/supabase-js'
 import { useRouter } from 'next/navigation'
 import { postData } from '../../../utils/helpers'
+import Button from '../Pricing/button'
 
 interface Props {
     session: Session | null;
@@ -25,12 +26,13 @@ export default function ManageSubscriptionButton({ session }: Props) {
     return (
  <div className="flex flex-col items-start justify-between sm:flex-row sm:items-center">
       <p className="pb-4 sm:pb-0">Manage your subscription on Stripe.</p>
-      <button
+      <Button
+        variant="slim"
         disabled={!session}
         onClick={redirectToCustomerPortal}
       >
         Open customer portal
-      </button>
+      </Button>
     </div>
     )
 }

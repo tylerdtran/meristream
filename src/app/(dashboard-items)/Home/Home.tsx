@@ -3,8 +3,21 @@ import './page.scss';
 import Image from 'next/image';
 import Meristream_Logo from '@/images/Meristream-logo.png';
 import Ellipse from '@/app/(components)/constants/constants';
+// import { Session, User } from '@supabase/supabase-js';
 
- export default function HomePage() {
+// interface Props {
+//   session: Session | null;
+//   user: User | null | undefined;
+//   // products: ProductWithPrices[];
+//   subscription: SubscriptionWithProduct | null;
+// } 
+
+ export default function HomePage(
+//   session,
+//   user,
+//   subscription
+// }: Props
+) {
 
     console.log('success')
 

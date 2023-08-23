@@ -4,6 +4,7 @@ import {
   getUserDetails,
   getSubscription
 } from '@/utils/supabase-server';
+import { getURL } from '@/utils/helpers';
 import { Database } from '../../../../database.types';
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
 import { revalidatePath } from 'next/cache';
@@ -18,6 +19,12 @@ export default async function Account() {
     getUserDetails(),
     getSubscription()
   ]);
+
+  // console.log(userDetails)
+  // console.log('sucessfully got user details')
+  // console.log(session)
+
+  console.log(getURL())
 
   const user = session?.user;
 
@@ -47,7 +54,7 @@ export default async function Account() {
     if (error) {
       console.log(error);
     }
-    revalidatePath('/Account-Profile');
+    revalidatePath('/account');
   };
 
   const updateEmail = async (formData: FormData) => {
@@ -59,7 +66,7 @@ export default async function Account() {
     if (error) {
       console.log(error);
     }
-    revalidatePath('/Account-Profile');
+    revalidatePath('/account');
   };
 
   return (
@@ -84,7 +91,7 @@ export default async function Account() {
           }
           footer={<ManageSubscriptionButton session={session} />}
         >
-          <div className="mt-8 mb-4 text-xl font-semibold">
+          <div className="mt-8 mb-4 text-xl text-white font-semibold">
             {subscription ? (
               `${subscriptionPrice}/${subscription?.prices?.interval}`
             ) : (

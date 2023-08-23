@@ -2,6 +2,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import SignIn from "./SignIn";
+import signin from '@/images/signin.png';
 
 export default async function AuthSignIn() {
   const supabase = createServerComponentClient({ cookies });
@@ -14,7 +15,7 @@ export default async function AuthSignIn() {
   }
 
   return (
-    <div className="SignIn-Container">
+    <div className="SignIn-Container" style={{ backgroundImage: `url(${signin})`}}>
       <SignIn />
     </div>
   )
