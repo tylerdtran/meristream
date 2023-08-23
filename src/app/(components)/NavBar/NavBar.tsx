@@ -1,10 +1,6 @@
 
 'use client';
 import React, { useState, useEffect, useRef }from 'react';
-// import { useUser } from '../../../utils/supabase-provider';
-// import React, { useState, useRef } from 'react';
-// import { redirect } from 'next/navigation';
-// import { useRouter } from 'next/router';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
@@ -13,8 +9,6 @@ import './NavBar.scss';
 export default function NavBar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [open, setOpen] = useState(false); 
-
-
 
     const toggleMobileMenu = () => {
       setMobileMenuOpen(!isMobileMenuOpen);
@@ -33,7 +27,7 @@ export default function NavBar() {
             </div>
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
-              <NavBarItem link="../../Account-Profile" name="Devices" />
+              <NavBarItem link="../../account" name="Account" />
               <NavBarItem link="../../Pricing" name="License" />
               <NavBarItem link="#" name="Account" > 
                 <DropdownMenu></DropdownMenu>
@@ -41,9 +35,9 @@ export default function NavBar() {
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-4 ">
-              <NavBarItem link="../../Account-Profile" name="Account-Profile" />
+              <NavBarItem link="../../account" name="Account" />
               <NavBarItem link="../../Pricing" name="Pricing Plans" />
-              <NavBarItem link="#" name="Account" > 
+              <NavBarItem link="#" name="Sign Out" > 
                 <DropdownMenu></DropdownMenu>
               </NavBarItem>
             </div> 
@@ -84,24 +78,8 @@ function DropdownMenu() {
 
   // const { user, logout} = useUser(); 
   const [open, setOpen] = useState(false);
-  
 
   let menuRef = useRef<HTMLDivElement>(null);
-
-
-  // useEffect (() => {
-  //   if (user == null) {
-  //     router.push('/SignUp')
-  //   }
-  // }, [user])
-
-  // console.log('test')
-
-  // const useSignOut = (e: any) => {
-  //   console.log('clicked')
-  //   e.preventDefault();
-  //   logout();
-  // }
 
   return (
     <div className="dropdown">
@@ -109,10 +87,7 @@ function DropdownMenu() {
         {/* <DropdownItem className="email-title">{user.email}</DropdownItem> */}
         <DropdownItem className="billing-title"><Link href="#">Billing</Link></DropdownItem>
         <DropdownItem className="change-password-title"><Link href="../../update-password">Change Password</Link></DropdownItem>
-
-        {/* <div onClick={useSignOut}> */}
-          <DropdownItem className="sign-out-title"><Link href="../../SignOut">Sign Out</Link></DropdownItem> 
-          {/* </div> */}
+        <DropdownItem className="sign-out-title"><Link href="../../SignOut">Sign Out</Link></DropdownItem> 
       </div>
     </div>
   );

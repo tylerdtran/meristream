@@ -22,6 +22,7 @@ export async function getSession() {
 
 export async function getUserDetails() {
   const supabase = createServerSupabaseClient();
+  // const user = supabase.auth.getUser()
   try {
     const { data: userDetails } = await supabase
       .from('user_profiles')
