@@ -23,7 +23,6 @@ export async function POST(req: Request) {
       const { url } = await stripe.billingPortal.sessions.create({
         customer,
         return_url: `${getURL()}/account`
-        // return_url: `https:localhost:3000/account`
       });
       return new Response(JSON.stringify({ url }), {
         status: 200
