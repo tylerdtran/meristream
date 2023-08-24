@@ -2,10 +2,8 @@
 import { useState } from 'react';
 import './SignIn.scss';
 import Link from 'next/link';
-// import { supabase } from '../../utils/supabase';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation';
-// import { useUser } from '../../utils/supabase-provider';
 import type { Database } from '../../../database.types';
 
 const SignIn = () => {
@@ -39,11 +37,6 @@ const SignIn = () => {
       }
   };
 
-
-  // const handleSubmit = (e: any) => {
-  //   e.preventDefault();
-  //   login(email, password);
-  // }
 
   
 

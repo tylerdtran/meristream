@@ -14,7 +14,7 @@ export default async function PricingPage() {
     ]);
     
     return (
-        <div className="h-full">
+        <div className="h-screen">
             <Pricing 
                 session={session}
                 user={session?.user}
