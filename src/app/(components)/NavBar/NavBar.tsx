@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef }from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
 import './NavBar.scss';
+import SignOutButton from '@/app/SignOut/page';
 
 
 export default function NavBar() {
@@ -27,19 +28,20 @@ export default function NavBar() {
             </div>
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
+              <NavBarItem link="../../Devices" name="Devices" />
               <NavBarItem link="../../account" name="Account" />
               <NavBarItem link="../../Pricing" name="Pricing Plans" />
-              <NavBarItem link="../../SignOut" name="Sign Out" > 
+              {/* <NavBarItem link="../../SignOut" name="Sign Out" ></NavBarItem> */}
                 {/* <DropdownMenu></DropdownMenu> */}
-              </NavBarItem>
+
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-6 ">
+              <NavBarItem link="../../Devices" name="Devices" />
               <NavBarItem link="../../account" name="Account" />
               <NavBarItem link="../../Pricing" name="Pricing Plans" />
-              <NavBarItem link="../../SignOut" name="Sign Out" > 
-                {/* <DropdownMenu></DropdownMenu> */}
-              </NavBarItem>
+              {/* <NavBarItem link="../../SignOut" name="Sign Out" > </NavBarItem> */}
+              <SignOutButton />
             </div> 
          </div> 
         </div>
