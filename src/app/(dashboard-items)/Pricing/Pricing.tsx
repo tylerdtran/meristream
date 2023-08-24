@@ -201,7 +201,7 @@ export default function Pricing({
           </div>
         </div>
         {/* <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3"> */}
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-1 w-30 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 w-30 sm:gap-6 md:flex md:justify-center md:items-center lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:flex xl:justify-center xl:items-center">
           {products.map((product) => {
             const price = product?.prices?.find(
               (price) => price.interval === billingInterval
@@ -216,7 +216,7 @@ export default function Pricing({
               <div
                 key={product.id}
                 className={cn(
-                  'rounded-lg shadow-sm divide-y divide-zinc-600 bg-zinc-900',
+                  'rounded-lg shadow-sm divide-y divide-zinc-600 bg-zinc-900 md:w-96',
                   {
                     'border border-pink-500': subscription
                       ? product.name === subscription?.prices?.products?.name

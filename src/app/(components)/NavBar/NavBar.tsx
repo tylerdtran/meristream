@@ -27,6 +27,7 @@ export default function NavBar() {
             </div>
           </div>
           <div className={`nav-element-holder-mobile flex flex-col gap-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
+              <NavBarItem link="../../Devices" name="Devices" />
               <NavBarItem link="../../account" name="Account" />
               <NavBarItem link="../../Pricing" name="Pricing Plans" />
               <NavBarItem link="../../SignOut" name="Sign Out" > 
@@ -35,6 +36,7 @@ export default function NavBar() {
           </div>
           <div className="nav-regular-menu">
             <div className="nav-element-holder flex flex-row gap-6 ">
+              <NavBarItem link="../../Devices" name="Devices" />
               <NavBarItem link="../../account" name="Account" />
               <NavBarItem link="../../Pricing" name="Pricing Plans" />
               <NavBarItem link="../../SignOut" name="Sign Out" > 
