@@ -1,6 +1,6 @@
 export default function Terms() {
     return (
-        <div className="terms-container p-10" >
+        <div className="terms-container p-10">
 TERMS AND CONDITIONS <br />
 <br />
 <br />
@@ -10,15 +10,15 @@ Last updated August 23, 2023
 <br />
 AGREEMENT TO OUR LEGAL TERMS
 <br />
-We are Meristream LLC ("Company," "we," "us," "our"), a company registered in California, United States at __________, Los Angeles, CA.
+We are Meristream LLC (&ldquo;Company,&ldquo; &ldquo;we,&ldquo; &ldquo;us,&ldquo; &ldquo;our&ldquo;), a company registered in California, United States at __________, Los Angeles, CA.
 <br />
-We operate the website https://www.meristream.com/ (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+We operate the website https://www.meristream.com/ (the &ldquo;Site&ldquo;), as well as any other related products and services that refer or link to these legal terms (the &ldquo;Legal Terms&ldquo;) (collectively, the &ldquo;Services&ldquo;).
 <br />
 Meristream is the first ambient music algorithm tailored towards spa and meditation.
 <br />
 You can contact us by email at aidanvass@meristream.com or by mail to __________, Los Angeles, CA, United States.
 <br />
-These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Meristream LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
+These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity (&ldquo;you&ldquo;), and Meristream LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 <br />
 We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by aidanvass@meristream.com, as stated in the email message. By continuing to use the Services after the effective date of any changes, you agree to be bound by the modified terms.
 <br />
@@ -72,19 +72,19 @@ The Services are not tailored to comply with industry-specific regulations (Heal
 Our intellectual property
 <br />
 <br />
-We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the "Content"), as well as the trademarks, service marks, and logos contained therein (the "Marks").
+We are the owner or the licensee of all intellectual property rights in our Services, including all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics in the Services (collectively, the &ldquo;Content&ldquo;), as well as the trademarks, service marks, and logos contained therein (the &ldquo;Marks&ldquo;).
 <br />
 <br />
 Our Content and Marks are protected by copyright and trademark laws (and various other intellectual property rights and unfair competition laws) and treaties in the United States and around the world.
 <br />
 <br />
-The Content and Marks are provided in or through the Services "AS IS" for your personal, non-commercial use or internal business purpose only.
+The Content and Marks are provided in or through the Services &ldquo;AS IS&ldquo; for your personal, non-commercial use or internal business purpose only.
 <br />
 <br />
 Your use of our Services
 <br />
 <br />
-Subject to your compliance with these Legal Terms, including the "PROHIBITED ACTIVITIES" section below, we grant you a non-exclusive, non-transferable, revocable license to:
+Subject to your compliance with these Legal Terms, including the &ldquo;PROHIBITED ACTIVITIES&ldquo; section below, we grant you a non-exclusive, non-transferable, revocable license to:
 access the Services; and
 download or print a copy of any portion of the Content to which you have properly gained access.
 solely for your personal, non-commercial use or internal business purpose.
@@ -105,14 +105,14 @@ Any breach of these Intellectual Property Rights will constitute a material brea
 Your submissions
 <br />
 <br />
-Please review this section and the "PROHIBITED ACTIVITIES" section carefully prior to using our Services to understand the (a) rights you give us and (b) obligations you have when you post or upload any content through the Services.
+Please review this section and the &ldquo;PROHIBITED ACTIVITIES&ldquo; section carefully prior to using our Services to understand the (a) rights you give us and (b) obligations you have when you post or upload any content through the Services.
 <br />
 <br />
-Submissions: By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services ("Submissions"), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
+Submissions: By directly sending us any question, comment, suggestion, idea, feedback, or other information about the Services (&ldquo;Submissions&ldquo;), you agree to assign to us all intellectual property rights in such Submission. You agree that we shall own this Submission and be entitled to its unrestricted use and dissemination for any lawful purpose, commercial or otherwise, without acknowledgment or compensation to you.
 <br />
 <br />
 You are responsible for what you post or upload: By sending us Submissions through any part of the Services you:
-confirm that you have read and agree with our "PROHIBITED ACTIVITIES" and will not post, send, publish, upload, or transmit through the Services any Submission that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;
+confirm that you have read and agree with our &ldquo;PROHIBITED ACTIVITIES&ldquo; and will not post, send, publish, upload, or transmit through the Services any Submission that is illegal, harassing, hateful, harmful, defamatory, obscene, bullying, abusive, discriminatory, threatening to any person or group, sexually explicit, false, inaccurate, deceitful, or misleading;
 to the extent permissible by applicable law, waive any and all moral rights to any such Submission;
 warrant that any such Submission are original to you or that you have the necessary rights and licenses to submit such Submissions and that you have full authority to grant us the above-mentioned rights in relation to your Submissions; and
 warrant and represent that your Submissions do not constitute confidential information.
@@ -189,7 +189,7 @@ Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses,
 Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.
 Delete the copyright or other proprietary rights notice from any Content.
 Attempt to impersonate another user or person or use the username of another user.
-Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats ("gifs"), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as "spyware" or "passive collection mechanisms" or "pcms").
+Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats (&ldquo;gifs&ldquo;), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as &ldquo;spyware&ldquo; or &ldquo;passive collection mechanisms&ldquo; or &ldquo;pcms&ldquo;).
 Interfere with, disrupt, or create an undue burden on the Services or the networks or services connected to the Services.
 Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Services to you.
 Attempt to bypass any measures of the Services designed to prevent or restrict access to the Services, or any portion of the Services.
@@ -220,7 +220,7 @@ By submitting suggestions or other feedback regarding the Services, you agree th
 11. THIRD-PARTY WEBSITES AND CONTENT
 <br />
 <br />
-The Services may contain (or you may be sent via the Site) links to other websites ("Third-Party Websites") as well as articles, photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software, and other content or items belonging to or originating from third parties ("Third-Party Content"). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us, and we are not responsible for any Third-Party Websites accessed through the Services or any Third-Party Content posted on, available through, or installed from the Services, including the content, accuracy, offensiveness, opinions, reliability, privacy practices, or other policies of or contained in the Third-Party Websites or the Third-Party Content. Inclusion of, linking to, or permitting the use or installation of any Third-Party Websites or any Third-Party Content does not imply approval or endorsement thereof by us. If you decide to leave the Services and access the Third-Party Websites or to use or install any Third-Party Content, you do so at your own risk, and you should be aware these Legal Terms no longer govern. You should review the applicable terms and policies, including privacy and data gathering practices, of any website to which you navigate from the Services or relating to any applications you use or install from the Services. Any purchases you make through Third-Party Websites will be through other websites and from other companies, and we take no responsibility whatsoever in relation to such purchases which are exclusively between you and the applicable third party. You agree and acknowledge that we do not endorse the products or services offered on Third-Party Websites and you shall hold us blameless from any harm caused by your purchase of such products or services. Additionally, you shall hold us blameless from any losses sustained by you or harm caused to you relating to or resulting in any way from any Third-Party Content or any contact with Third-Party Websites.
+The Services may contain (or you may be sent via the Site) links to other websites (&ldquo;Third-Party Websites&ldquo;) as well as articles, photographs, text, graphics, pictures, designs, music, sound, video, information, applications, software, and other content or items belonging to or originating from third parties (&ldquo;Third-Party Content&ldquo;). Such Third-Party Websites and Third-Party Content are not investigated, monitored, or checked for accuracy, appropriateness, or completeness by us, and we are not responsible for any Third-Party Websites accessed through the Services or any Third-Party Content posted on, available through, or installed from the Services, including the content, accuracy, offensiveness, opinions, reliability, privacy practices, or other policies of or contained in the Third-Party Websites or the Third-Party Content. Inclusion of, linking to, or permitting the use or installation of any Third-Party Websites or any Third-Party Content does not imply approval or endorsement thereof by us. If you decide to leave the Services and access the Third-Party Websites or to use or install any Third-Party Content, you do so at your own risk, and you should be aware these Legal Terms no longer govern. You should review the applicable terms and policies, including privacy and data gathering practices, of any website to which you navigate from the Services or relating to any applications you use or install from the Services. Any purchases you make through Third-Party Websites will be through other websites and from other companies, and we take no responsibility whatsoever in relation to such purchases which are exclusively between you and the applicable third party. You agree and acknowledge that we do not endorse the products or services offered on Third-Party Websites and you shall hold us blameless from any harm caused by your purchase of such products or services. Additionally, you shall hold us blameless from any losses sustained by you or harm caused to you relating to or resulting in any way from any Third-Party Content or any contact with Third-Party Websites.
 <br />
 <br />
 12. SERVICES MANAGEMENT
@@ -261,7 +261,7 @@ These Legal Terms and your use of the Services are governed by and construed in 
 17. DISPUTE RESOLUTION
 <br />
 <br />
-Any legal action of whatever nature brought by either you or us (collectively, the "Parties" and individually, a "Party") shall be commenced or prosecuted in the state and federal courts located in Ventura, California, and the Parties hereby consent to, and waive all defenses of lack of personal jurisdiction and forum non conveniens with respect to venue and jurisdiction in such state and federal courts. Application of the United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transaction Act (UCITA) are excluded from these Legal Terms. In no event shall any claim, action, or proceeding brought by either Party related in any way to the Services be commenced more than one (1) years after the cause of action arose.
+Any legal action of whatever nature brought by either you or us (collectively, the &ldquo;Parties&ldquo; and individually, a &ldquo;Party&ldquo;) shall be commenced or prosecuted in the state and federal courts located in Ventura, California, and the Parties hereby consent to, and waive all defenses of lack of personal jurisdiction and forum non conveniens with respect to venue and jurisdiction in such state and federal courts. Application of the United Nations Convention on Contracts for the International Sale of Goods and the Uniform Computer Information Transaction Act (UCITA) are excluded from these Legal Terms. In no event shall any claim, action, or proceeding brought by either Party related in any way to the Services be commenced more than one (1) years after the cause of action arose.
 <br />
 <br />
 18. CORRECTIONS
