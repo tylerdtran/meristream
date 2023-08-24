@@ -23,7 +23,9 @@
   
 
 @media (min-width: 768px) {
-    
+    .nav-element-holder-mobile {
+        display: none;
+    }
     .nav-mobile-menu {
         display: none;
     }
