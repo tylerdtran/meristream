@@ -320,7 +320,7 @@ In order to resolve a complaint regarding the Services or to receive further inf
 Meristream LLC<br />
 Los Angeles, CA<br />
 United States<br />
-aidanvass@meristream.com<br />
+support@meristream.com<br />
 <br />
 <br />
         </div>
