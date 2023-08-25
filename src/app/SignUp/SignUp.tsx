@@ -42,7 +42,7 @@ export default function SignUp() {
         email: email,
         password: password,
         options: {
-          emailRedirectTo: "https://localhost:3000/auth/callback",
+          // emailRedirectTo: `${process.env.NEXT_PUBLIC_VERCEL_URL}/auth/callback`,
           data: {
             first_name: firstName,
             last_name: lastName,

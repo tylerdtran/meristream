@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 
+
 export default async function Account() {
   const [session, userDetails, subscription] = await Promise.all([
     getSession(),
@@ -20,11 +21,8 @@ export default async function Account() {
     getSubscription()
   ]);
 
-  // console.log(userDetails)
-  // console.log('sucessfully got user details')
-  // console.log(session)
 
-  console.log(getURL())
+  // console.log(getURL())
 
   const user = session?.user;
 

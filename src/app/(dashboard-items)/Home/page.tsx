@@ -19,8 +19,17 @@ export default async function AuthHomePage() {
     data: { session }
   } = await supabase.auth.getSession();
 
+  const [subscription] = await Promise.all([
+    getSubscription()
+  ]);
+
+
   if (!session) {
     redirect('/SignIn');
+  }
+
+  if (!subscription) {
+    redirect('/Pricing');
   }
 
   return (
