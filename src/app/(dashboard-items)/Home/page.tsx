@@ -4,6 +4,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import {
+  getUserDetails,
   getSession,
   getSubscription,
 } from '@/utils/supabase-server';
@@ -19,18 +20,19 @@ export default async function AuthHomePage() {
     data: { session }
   } = await supabase.auth.getSession();
 
-  const [subscription] = await Promise.all([
-    getSubscription()
-  ]);
+  // const [userDetails, subscription] = await Promise.all([
+  //   getUserDetails(),
+  //   getSubscription()
+  // ]);
 
 
   if (!session) {
     redirect('/SignIn');
   }
 
-  if (!subscription) {
-    redirect('/Pricing');
-  }
+  // if (!subscription) {
+  //   redirect('/Pricing');
+  // }
 
   return (
     <div className="ActivePage-Container">

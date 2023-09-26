@@ -38,9 +38,6 @@ const SignIn = () => {
   };
 
 
-  
-
-
   return (
     <div className="signin-container h-screen w-screen flex justify-center items-center">
       <div className="signin-content">
@@ -49,7 +46,8 @@ const SignIn = () => {
             <div className='signin-header'>
               <h2 className="signin-title">Sign In</h2>
               <div className='signin-account hover:underline-offset-1'>
-                <Link href="../SignUp">Need to create an account?</Link></div>
+                <Link href="../SignUp">Need to create an account?</Link>
+              </div>
             </div>
           </div>
           <div>
@@ -77,7 +75,6 @@ const SignIn = () => {
                     required
                   />
                 </div>
-
                 <div className="error-message text-red-100">{errorMessage}</div>
                 <div className="reset-pass-button"><Link href="/forgot-password">Reset Password</Link></div>
               </div>
