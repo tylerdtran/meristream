@@ -20,7 +20,7 @@ import Ellipse from '@/app/(components)/constants/constants';
 ) {
 
     console.log('success')
-
+    
 
     return (
         // <main className="flex h-screen flex-col items-center justify-between">
@@ -36,30 +36,10 @@ import Ellipse from '@/app/(components)/constants/constants';
 
         </div>
         <div>
-            {/* <div className="ellipse-container"> */}
-            <Ellipse className="first-logo-circle" />
-          {/* </div>
-          <div className="ellipse-container"> */}
+            {/* <Ellipse className="first-logo-circle" />
             <Ellipse className="second-logo-circle" />
-          {/* </div>
-          <div className="ellipse-container"> */}
             <Ellipse className="third-logo-circle" />
-          {/* </div>
-          <div className="ellipse-container"> */}
-            <Ellipse className="fourth-logo-circle" />
-          {/* </div>
-          <div className="ellipse-container">
-            <Ellipse className="radial1-circle" />
-          </div>
-          <div className="ellipse-container">
-            <Ellipse className="radial2-circle" />
-          </div>
-          <div className="ellipse-container">
-            <Ellipse className="radial3-circle" />
-          </div> */}
-          {/* { customers.map((customer) => (
-            <p key={customers.id}>{customer.title}</p>
-          ))} */}
+            <Ellipse className="fourth-logo-circle" /> */}
         </div>
       </main>
     );

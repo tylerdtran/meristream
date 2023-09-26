@@ -101,7 +101,7 @@
     }
 
     .field-input {
-        padding: 0.45em;
+        padding: 0.65em;
         margin: 0.5em 0em 0em 0em;
         border-radius: 0.5em;
       }
@@ -112,5 +112,16 @@
     .signin-content {
         height: 30rem;
   }
+
+  }
+
+  .SignIn-Container {
+    // background-image: url("./SignUI.png");
+    background-image: url('../../images/SignUI.png');
+    // background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
 
   }

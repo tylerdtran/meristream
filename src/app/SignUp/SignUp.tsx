@@ -18,7 +18,7 @@ export default function SignUp() {
   const [lastName, setLastName] = useState('');
   const [companyName, setCompanyName] = useState('');
   const router = useRouter()
-  const supabase = createClientComponentClient<Database>()  
+  const supabase = createClientComponentClient()  
 
   const Register = async (e: any) => { 
     e.preventDefault();
@@ -37,20 +37,20 @@ export default function SignUp() {
     }
 
     try {
-    const { data , error } = await supabase.auth.signUp(
-      {
-        email: email,
-        password: password,
-        options: {
-          // emailRedirectTo: `${process.env.NEXT_PUBLIC_VERCEL_URL}/auth/callback`,
-          data: {
-            first_name: firstName,
-            last_name: lastName,
-            company_name: companyName
+      const { data , error } = await supabase.auth.signUp(
+        {
+          email: email,
+          password: password,
+          options: {
+            // emailRedirectTo: `${process.env.NEXT_PUBLIC_VERCEL_URL}/auth/callback`,
+            data: {
+              first_name: firstName,
+              last_name: lastName,
+              company_name: companyName
+            }
           }
         }
-      }
-    )
+      )
 
     if (error) {
       throw error;
@@ -92,7 +92,7 @@ export default function SignUp() {
             <div>
               <h1 className="container-title field-title">Sign Up</h1>
             </div>
-            <div className="hover:text-white uppercase text-center">Already have an account? 
+            <div className="text-white uppercase text-center">Already have an account? 
               <br /> 
             <Link className="click-login" href="../SignIn"><div className="underline-offset-1">Click here to log in</div></Link>
             </div>

@@ -8,6 +8,9 @@
   border-radius: 0.5em;
 }
 
+.signuppage {
+  background-image: url("../../images/Background_Ui.png");
+}
 .field-input {
     display: flex;
     flex-direction: column;
@@ -21,6 +24,7 @@
 
   .field {
     padding: 0.45em;
+    font-family: 'Mulish', sans-serif;
   }
 
 }
@@ -129,9 +133,11 @@
 
 .field-title {
   color: rgba(255, 255, 255, 1);
+  letter-spacing: 1px;
 }
 .container-title {
   font-size: 2em;
+  font-family: 'Mulish', sans-serif;
 }
 .choose-plan-body {
   font-size: 1.75em;
@@ -154,4 +160,20 @@
   .signuppage {
     height: 100%;
   }
+}
+
+.SignUp-Container {
+  // background-image: url("./SignUI.png");
+  background-image: url('../../images/SignUI.png');
+  // background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+
+}
+
+.signuppage-content { 
+  font-family: 'Mulish', sans-serif;
+  letter-spacing: 2px;
 }

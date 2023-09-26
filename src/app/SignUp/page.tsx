@@ -3,7 +3,7 @@ import SignUp from './SignUp';
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-
+import './SignUp.scss';
 
 
 export default async function AuthSignUp() {
