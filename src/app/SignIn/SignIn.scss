@@ -16,7 +16,7 @@
   .signin-content {
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 50%;
     height: 50rem;
     padding: 1em;
     border-radius: 0.5em;
@@ -123,5 +123,8 @@
     background-position: center;
     height: 100vh;
     width: 100vw;
+  }
 
+  .signin-container { 
+    backdrop-filter: blur(6px);
   }
