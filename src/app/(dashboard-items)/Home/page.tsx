@@ -35,7 +35,7 @@ export default async function AuthHomePage() {
   // }
 
   return (
-    <div className="ActivePage-Container">
+    <div className="ActivePage-Container h-full">
       <HomePage
       // session={session}
       // user={session?.user}
