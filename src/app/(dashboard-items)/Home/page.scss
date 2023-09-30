@@ -138,14 +138,47 @@
   height: 100%;
 }
 
-.lottie-container { 
-  margin-top: -38rem;
+@media (min-width: 1200px) and (max-height: 900px) {
+  .lottie-container { 
+    margin-top: -38rem;
+  }
 }
+
 
 @media (max-width: 768px) {
   .homepage-container {
     height: 100vh
   }
-
+  .lottie-container { 
+    margin-top: 5rem;
+  }
 
 }
+// tablet 
+@media (max-width: 1024px) {
+  .homepage-container {
+    height: 100vh
+  }
+  .lottie-container { 
+    margin-top: 5rem;
+  }
+
+}
+
+// slightly bigger tablet
+@media (min-width: 1000px) and (max-height: 900px) {
+  .lottie-container { 
+    margin-top: -12rem;
+  }
+  .homepage-container {
+    height: 100%;
+  }
+}
+
+// 13 inch laptops?
+// @media (max-width: 1000px) and (max-height: 900px) {
+//   .lottie-container { 
+//     margin-top: -33rem;
+//   }
+
+// }
