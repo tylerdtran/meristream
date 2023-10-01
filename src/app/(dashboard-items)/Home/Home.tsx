@@ -6,6 +6,7 @@ import Ellipse from "@/app/(components)/constants/constants";
 // import { Session, User } from '@supabase/supabase-js';
 import Lottie from "lottie-react";
 import SoundAnimation from "../../../animations/meristream app animation desktop with button.json";
+import SoundAnimation2 from "../../../animations/meristream app animation mobile with button.json";
 
 // interface Props {
 //   session: Session | null;
@@ -28,6 +29,15 @@ export default function HomePage() {
         <div className="lottie-container">
           <Lottie
             animationData={SoundAnimation}
+            loop={false}
+            className="lottie"
+          >
+            {" "}
+          </Lottie>
+        </div>
+        <div className="lottie-container-mobile ">
+          <Lottie
+            animationData={SoundAnimation2}
             loop={false}
             className="lottie"
           >
