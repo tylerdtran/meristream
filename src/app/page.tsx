@@ -1,5 +1,6 @@
 // import HomePage from './(dashboard-items)/Home/page';
 import SignUp from './SignUp/SignUp';
+import SignIn from './SignIn/SignIn';
   import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
   import { cookies } from 'next/headers';
   import { redirect } from 'next/navigation';
@@ -21,7 +22,7 @@ async function Home() {
     redirect('/Home');
   }
   return (
-    <SignUp />
+    <SignIn />
   );
 }
 
