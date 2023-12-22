@@ -6,8 +6,6 @@ This Meristream Dummy version is an intern project that leverages Supabase (Post
 
 ## Demo
 
-- [Meristream Demo](#) (Replace with your demo link)
-
 ![Screenshot of demo](./src/images/meristream.png)
 
 ## Features
