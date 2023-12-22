@@ -2,7 +2,7 @@
 
 ## Description
 
-This Meristream Dummy version is an intern project that leverages Supabase (PostgreSQL), Next.js for server-side rendering, React.js for client-side rendering, Stripe API for payments integration, and Tailwind CSS for styling.
+This Meristream Dummy version is a model of the existing SaaS platform for <a href="https://www.meristream.com/">Meristream</a> that leverages Supabase (PostgreSQL), Next.js for server-side rendering, React.js for client-side rendering, Stripe API for payments integration, and Tailwind CSS for styling. Meristream's application is as simple as pressing a button to play from there, the user will be immersed with infinite calming sounds through the meditative music algorithm that evolves the same way a relaxation music playlist would, with shifting keys and variation and textures, but all procedurally so you don't have to do a single thing.
 
 ## Demo
 
